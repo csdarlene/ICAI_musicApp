@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign in - ICAI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../pics/ICAI.png" type="image/x-icon">
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }</style>
+</head>
+
+<body>
+<div class="center">
+
+
+<form method="post">
+    <a href="../Welcome_Home/FrontPage.html"> ICAI</a>
+    <h4>Welcome to ICAI</h4>
+    <label for="Name"></label><input type="text" placeholder="Name" id="Name"
+                                     autocomplete="off"
+                                     required
+                                     maxlength="20">
+    <br>
+    <label for="Email"></label><input type="email" placeholder="Email" id="Email"
+                                      autocomplete="off"
+                                      required
+                                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z0-9.-]">
+    <h5>Birthday: <label for="Birthday"></label><input type="date" id="Birthday"
+                                                      autocomplete="off"
+                                                      required
+                                                      min="1940-01-01"
+                                                      max="2010-12-31"
+    ></h5>
+
+    <label for="Username"></label><input type="text" placeholder="Username" id="Username"
+                                         autocomplete="off"
+                                         maxlength="20"
+                                         required>
+    <br>
+    <label for="Password"></label><input type="password" placeholder="Password" id="Password"
+                                         autocomplete="off"
+                                         minlength="7"
+                                         required>
+    <br>
+    <button type="button" id="SignUpButton"> Sign up
+    </button>
+    <br>
+    <a href="../SignIn/SignIn.html">Already a member? Sign in</a>
+    <br>
+</form>
+
+</div>
+
+<script src="SignUp.js" ></script>
+
+</body>
+</html>
