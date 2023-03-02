@@ -11,7 +11,6 @@ import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
-import java.util.List;
 
 @Path("/recordLabels")
 public class RecordLabelController{
@@ -21,8 +20,8 @@ public class RecordLabelController{
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<RecordLabels> readRecordLabels(){
-        return recordLabelService.getAllRecordLabels();
+    public String readRecordLabels(){
+        return recordLabelService.getAllRecordLabels().toString();
     }
 
     @Path ("/getRecordLabel")

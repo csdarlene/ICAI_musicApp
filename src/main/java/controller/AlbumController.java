@@ -12,7 +12,6 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import java.util.List;
 
 @Path("/albums")
 public class AlbumController{
@@ -21,8 +20,8 @@ public class AlbumController{
     @Path("/readAlbums")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Albums> readAlbums(){
-        return albumService.getAllAlbums();
+    public String readAlbums(){
+        return albumService.getAllAlbums().toString();
     }
 
     @Path ("/getAlbum")

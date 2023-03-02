@@ -11,7 +11,6 @@ import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
-import java.util.List;
 
 @Path("users")
 public class UserController {
@@ -21,8 +20,8 @@ public class UserController {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Users> readUsers() {
-        return userService.getAllUsers();
+    public String readUsers() {
+        return userService.getAllUsers().toString();
     }
 
     @Path("/getUser")

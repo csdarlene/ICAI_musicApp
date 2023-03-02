@@ -11,9 +11,8 @@ import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
-import java.util.List;
 
-@Path("Songs")
+@Path("songs")
 public class SongController{
     private final SongService songService = new SongService();
 
@@ -21,8 +20,8 @@ public class SongController{
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Songs> readSongs(){
-        return songService.getAllSongs();
+    public String readSongs(){
+        return songService.getAllSongs().toString();
     }
 
     @Path ("/getSong")
