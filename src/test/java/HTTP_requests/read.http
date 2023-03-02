@@ -1,0 +1,34 @@
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/songs/readSongs
+
+<> 2023-03-02T115054.200.json
+
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/userDetails/readUserDetails
+
+<> 2023-03-02T115123.200.json
+
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/users/readUsers
+
+<> 2023-03-02T115133.200.json
+
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/albums/readAlbums
+
+<> 2023-03-02T114949.200.json
+
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/artists/readArtists
+
+<> 2023-03-02T114949-1.200.json
+
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/recordLabels/readRecordLabels
+
+<> 2023-03-02T114949-2.200.json
+
+###
+GET http://localhost:8080/ICAIapp_war_exploded/api/playlists/readPlaylists
+
+<> 2023-03-02T115147.200.json
