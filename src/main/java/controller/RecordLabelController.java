@@ -1,16 +1,11 @@
 package controller;
 
 import entity.RecordLabels;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import service.RecordLabelService;
 
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/recordLabels")
 public class RecordLabelController{
@@ -24,14 +19,20 @@ public class RecordLabelController{
         return recordLabelService.getAllRecordLabels().toString();
     }
 
-    @Path ("/getRecordLabel")
+    @Path ("/{getRecordLabel}")
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getRecordLabel(@PathParam("getRecordLabel") Long id){
+        return recordLabelService.findRecordLabel(id).toString();
+    }
+    @Path ("/find/{findRecordLabel}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public RecordLabels getRecordLabel(RecordLabels recordLabels){
-        return recordLabelService.findRecordLabel(recordLabels.getId());
+    public String findRecordLabel(@PathParam("findRecordLabel") Long id){
+        return recordLabelService.findRecordLabel(id).toString();
     }
-
 
     @Path("/createRecordLabel")
     @POST

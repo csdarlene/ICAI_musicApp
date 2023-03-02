@@ -1,16 +1,11 @@
 package controller;
 
 import entity.Users;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import service.UserService;
 
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("users")
 public class UserController {
@@ -24,12 +19,20 @@ public class UserController {
         return userService.getAllUsers().toString();
     }
 
-    @Path("/getUser")
+    @Path("/{getUser}")
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getUser(@PathParam("getUser") Long id) {
+        return userService.findUser(id).toString();
+    }
+
+    @Path("/find/{findUser}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Users getUser(Users Users) {
-        return userService.findUser(Users.getId());
+    public String findUser(@PathParam("findUser") Long id) {
+        return userService.findUser(id).toString();
     }
 
     @Path("/getDetailsOfUser")

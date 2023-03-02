@@ -1,15 +1,9 @@
 package controller;
 
 import entity.Playlists;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import service.PlaylistService;
 
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("playlists")
@@ -24,20 +18,27 @@ public class PlaylistController{
         return playlistService.getAllPlaylists().toString();
     }
 
-    @Path ("/getPlaylist")
+    @Path ("/{getPlaylist}")
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPlaylist(@PathParam( "getPlaylist") Long id){
+        return playlistService.findPlaylist(id).toString();
+    }
+
+    @Path ("/find/{findPlaylist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Playlists getPlaylist(Playlists playlists){
-        return playlistService.findPlaylist(playlists.getId());
+    public String findPlaylist(@PathParam( "findPlaylist") Long id){
+        return playlistService.findPlaylist(id).toString();
     }
-
     @Path ("/getUserPlaylist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void getUserPlaylist(Playlists playlists){
-         playlistService.getUserPlaylist(playlists.getName());
+        playlistService.getUserPlaylist(playlists.getName());
     }
 
     @Path("/createPlaylist")

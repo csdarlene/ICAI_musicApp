@@ -1,16 +1,11 @@
 package controller;
 
 import entity.Songs;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import service.SongService;
 
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("songs")
 public class SongController{
@@ -24,13 +19,23 @@ public class SongController{
         return songService.getAllSongs().toString();
     }
 
-    @Path ("/getSong")
+    @Path ("/{getSong}")
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getSong(@PathParam("getSong") Long id){
+        return songService.findSong(id).toString();
+    }
+
+    @Path ("/find/{findSong}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Songs getSong(Songs songs){
-        return songService.findSong(songs.getId());
+    public String findSong(@PathParam("findSong") Long id){
+        return songService.findSong(id).toString();
     }
+
+
     @Path ("/getSongArtist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

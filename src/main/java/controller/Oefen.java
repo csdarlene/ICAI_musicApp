@@ -1,6 +1,8 @@
 package controller;
 
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
 
 @Path("/oefen")
 public class Oefen {
@@ -9,11 +11,10 @@ public class Oefen {
     public String hello() {
         return "Hello, World!";
     }
-
     @Path("/darlene")
     @GET
     @Produces("text/plain")
-    public String dar() {
+    public String dar(){
         return "hi Darlene";
     }
 }
