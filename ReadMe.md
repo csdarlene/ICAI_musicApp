@@ -15,7 +15,7 @@
   - create a playlist  
   - edit account: username or password
 
-## API
+## Requests
 - PUT
 - GET ✓
 - POST 
