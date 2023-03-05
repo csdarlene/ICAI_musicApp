@@ -6,37 +6,36 @@ import service.PlaylistService;
 
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.List;
+
 @Path("playlists")
 public class PlaylistController{
     private final PlaylistService playlistService = new PlaylistService();
 
     @Path("/readPlaylists")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String readPlaylists(){
-        return playlistService.getAllPlaylists().toString();
+    public List<Playlists> readPlaylists(){
+        return playlistService.getAllPlaylists();
     }
 
     @Path ("/{getPlaylist}")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPlaylist(@PathParam( "getPlaylist") Long id){
-        return playlistService.findPlaylist(id).toString();
+    public Playlists getPlaylist(@PathParam( "getPlaylist") Long id){
+        return playlistService.findPlaylist(id);
     }
 
     @Path ("/find/{findPlaylist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String findPlaylist(@PathParam( "findPlaylist") Long id){
-        return playlistService.findPlaylist(id).toString();
+    public Playlists findPlaylist(@PathParam( "findPlaylist") Long id){
+        return playlistService.findPlaylist(id);
     }
+
     @Path ("/getUserPlaylist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void getUserPlaylist(Playlists playlists){
         playlistService.getUserPlaylist(playlists.getName());
     }
@@ -44,15 +43,12 @@ public class PlaylistController{
     @Path("/createPlaylist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void createPlaylist(Playlists playlists){
         playlistService.createPlaylists(playlists);
     }
 
     @Path ("/deletePlaylist")
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void deletePlaylist(Playlists playlists){
         playlistService.deletePlaylist(playlists.getId());
     }
@@ -60,7 +56,6 @@ public class PlaylistController{
     @Path ("/updatePlaylist")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void updatePlaylist(Playlists playlists){
         playlistService.updatePlaylistName(playlists.getId(),playlists.getName());
     }}

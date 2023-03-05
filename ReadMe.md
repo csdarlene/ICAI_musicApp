@@ -14,4 +14,10 @@
   - upload song 
   - create a playlist  
   - edit account: username or password
+
+## API
+- PUT
+- GET ✓
+- POST 
+- DELETE
   

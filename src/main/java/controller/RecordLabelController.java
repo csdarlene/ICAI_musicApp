@@ -13,39 +13,33 @@ public class RecordLabelController{
 
     @Path("/readRecordLabels")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String readRecordLabels(){
-        return recordLabelService.getAllRecordLabels().toString();
+    public List<RecordLabels> readRecordLabels(){
+        return recordLabelService.getAllRecordLabels();
     }
 
     @Path ("/{getRecordLabel}")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getRecordLabel(@PathParam("getRecordLabel") Long id){
-        return recordLabelService.findRecordLabel(id).toString();
+    public RecordLabels getRecordLabel(@PathParam("getRecordLabel") Long id){
+        return recordLabelService.findRecordLabel(id);
     }
     @Path ("/find/{findRecordLabel}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String findRecordLabel(@PathParam("findRecordLabel") Long id){
-        return recordLabelService.findRecordLabel(id).toString();
+    public RecordLabels findRecordLabel(@PathParam("findRecordLabel") Long id){
+        return recordLabelService.findRecordLabel(id);
     }
 
     @Path("/createRecordLabel")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void createRecordLabel(RecordLabels recordLabels){
         recordLabelService.createRecordLabel(recordLabels);
     }
 
     @Path ("/deleteRecordLabel")
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void deleteRecordLabel(RecordLabels recordLabels){
         recordLabelService.deleteRecordLabel(recordLabels.getId());
     }
@@ -53,7 +47,6 @@ public class RecordLabelController{
     @Path ("/updateRecordLabel")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void updateRecordLabel(RecordLabels recordLabels){
         recordLabelService.updateRecordLabelName(recordLabels.getId(),recordLabels.getName());
     }

@@ -6,6 +6,8 @@ import service.ArtistService;
 
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.List;
+
 
 @Path("artists")
 public class ArtistController {
@@ -13,41 +15,35 @@ public class ArtistController {
 
     @Path("/readArtists")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String readArtists() {
-        return artistService.getAllArtists().toString();
+    public List<Artists> readArtists() {
+        return artistService.getAllArtists();
     }
 
 
     @Path("/{getArtist}")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getArtist(@PathParam("getArtist") Long id) {
-        return artistService.findArtist(id).toString();
+    public Artists getArtist(@PathParam("getArtist") Long id) {
+        return artistService.findArtist(id);
     }
 
     @Path("/find/{findArtist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String findArtist(@PathParam("findArtist") Long id) {
-        return artistService.findArtist(id).toString();
+    public Artists findArtist(@PathParam("findArtist") Long id) {
+        return artistService.findArtist(id);
     }
 
     @Path("/createArtists")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void createArtist(Artists artists) {
         artistService.createArtist(artists);
     }
 
     @Path("/deleteArtist")
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void deleteArtist(Artists artists) {
         artistService.deleteArtist(artists.getId());
     }
@@ -55,7 +51,6 @@ public class ArtistController {
     @Path("/updateArtist")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void updateArtist(Artists artists) {
         artistService.updateArtistName(artists.getId(), artists.getName());
     }

@@ -13,32 +13,29 @@ public class UserController {
 
     @Path("/readUsers")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String readUsers() {
-        return userService.getAllUsers().toString();
+    public List<Users> readUsers() {
+        return userService.getAllUsers();
     }
 
     @Path("/{getUser}")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUser(@PathParam("getUser") Long id) {
-        return userService.findUser(id).toString();
+    public Users getUser(@PathParam("getUser") Long id) {
+        return userService.findUser(id);
     }
 
     @Path("/find/{findUser}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String findUser(@PathParam("findUser") Long id) {
-        return userService.findUser(id).toString();
+    public Users findUser(@PathParam("findUser") Long id) {
+        return userService.findUser(id);
     }
+
 
     @Path("/getDetailsOfUser")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void getDetailsOfUser(Users Users) {
         userService.getDetailsOfUsers(Users.getUsername());
     }
@@ -47,15 +44,12 @@ public class UserController {
     @Path("/createUser")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void createUser(Users User) {
         userService.createUsers(User);
     }
 
     @Path("/deleteUser")
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void deleteUser(Users User) {
         userService.deleteUser(User.getId());
     }
@@ -63,7 +57,6 @@ public class UserController {
     @Path("/updatePasswordUser")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void updateNameUser(Users User) {
         userService.updateUserPassword(User.getId(), User.getPassword());
     }
@@ -71,7 +64,6 @@ public class UserController {
     @Path("/updateNameUser")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void updateEmailUser(Users User) {
         userService.updateUserUsername(User.getId(), User.getUsername());
     }
@@ -79,7 +71,6 @@ public class UserController {
   /*  @Path("/signIn")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public boolean SignIn(String username,String password) {
        return userService.signIn(username, password);
     }*/

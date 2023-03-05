@@ -13,33 +13,28 @@ public class SongController{
 
     @Path("/readSongs")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String readSongs(){
-        return songService.getAllSongs().toString();
+    public List<Songs> readSongs(){
+        return songService.getAllSongs();
     }
 
     @Path ("/{getSong}")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSong(@PathParam("getSong") Long id){
-        return songService.findSong(id).toString();
+    public Songs getSong(@PathParam("getSong") Long id){
+        return songService.findSong(id);
     }
 
     @Path ("/find/{findSong}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String findSong(@PathParam("findSong") Long id){
-        return songService.findSong(id).toString();
+    public Songs findSong(@PathParam("findSong") Long id){
+        return songService.findSong(id);
     }
-
 
     @Path ("/getSongArtist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void getSongArtsit(Songs songs){
          songService.getArtistSong(songs.getName());
     }
@@ -47,15 +42,12 @@ public class SongController{
     @Path("/createSong")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void createSong(Songs Songs){
         songService.createSongs(Songs);
     }
 
     @Path ("/deleteSong")
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void deleteSong(Songs songs){
         songService.deleteSong(songs.getId());
           }
@@ -63,7 +55,6 @@ public class SongController{
     @Path ("/updateSong")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public void updateSong(Songs songs){
         songService.updateSongName(songs.getId(),songs.getName());
     }}

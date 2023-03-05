@@ -7,59 +7,69 @@ import service.AlbumService;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+
 @Path("/albums")
-public class AlbumController{
+public class AlbumController {
     private final AlbumService albumService = new AlbumService();
 
     @Path("/readAlbums")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String readAlbums(){
+    public String readAlbums() {
         return albumService.getAllAlbums().toString();
     }
 
-    @Path ("/{getAlbum}")
+    @Path("/{getAlbum}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAlbum(@PathParam("getAlbum") Long id){
-        return albumService.findAlbum(id).toString();
-    }
-    @Path ("/find/{findAlbum}")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    public String findAlbum(@PathParam("findAlbum") Long id){
-        return albumService.findAlbum(id).toString();
+    public Albums getAlbum(@PathParam("getAlbum") Long id) {
+        return albumService.findAlbum(id);
     }
 
-    @Path("/createAlbums")
+    @Path("/find/{findAlbum}")
+    @POST
+    @Consumes
+            (MediaType.APPLICATION_JSON)
+    public Albums findAlbum(@PathParam("findAlbum") Long id) {
+        return albumService.findAlbum(id);
+    }
+
+    //create
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response createAlbum(Albums albums){
-        albumService.createAlbums(albums); return Response.status(Response.Status.CREATED).build();
+    public Response createAlbum(Albums albums)throws URISyntaxException {
+        albumService.createAlbums(albums);
+        URI uri = new URI("/albums/"+albums.getId());
+        return Response.created(uri).build();
 
     }
 
-    @Path ("/deleteAlbum")
+    @Path("/delete/{id}")
     @DELETE
-    @Produces(MediaType.APPLICATION_JSON)
-    public void deleteAlbum(Albums albums){
-         albumService.deleteAlbum(albums.getId());
+    public Response deleteAlbum(@PathParam("id") Long id) {
+        albumService.deleteAlbum(id);
+        return Response.status(Response.Status.OK).build();
     }
 
-    @Path ("/updateYearAlbum")
+    //update year
+    @Path("/{id}&{year}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response updateYearAlbum(Albums albums){
-         albumService.updateAlbumYear(albums.getId(),albums.getYear());
-        return Response.status(Response.Status.OK).build();}
-    @Path ("/updateNameAlbum")
+    public Response updateYearAlbum(@PathParam("id") Long id, @PathParam("year")Integer year) {
+        albumService.updateAlbumYear(id, year);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    //update name
+    @Path("/updateNameAlbum")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response updateNameAlbum(Albums albums){
-        albumService.updateAlbumName(albums.getId(),albums.getName());
-        return Response.status(Response.Status.OK).build(); }
+    public Response updateNameAlbum(Albums albums) {
+        albumService.updateAlbumName(albums.getId(), albums.getName());
+        return Response.status(Response.Status.OK).build();
+    }
 
 }
