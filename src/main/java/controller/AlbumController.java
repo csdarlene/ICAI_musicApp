@@ -15,7 +15,6 @@ import java.util.List;
 public class AlbumController {
     private final AlbumService albumService = new AlbumService();
 
-    @Path("/readAlbums")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String readAlbums() {
@@ -29,7 +28,7 @@ public class AlbumController {
         return albumService.findAlbum(id);
     }
 
-    @Path("/find/{findAlbum}")
+    @Path("/{findAlbum}")
     @POST
     @Consumes
             (MediaType.APPLICATION_JSON)
@@ -47,7 +46,7 @@ public class AlbumController {
 
     }
 
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @DELETE
     public Response deleteAlbum(@PathParam("id") Long id) {
         albumService.deleteAlbum(id);
@@ -64,7 +63,7 @@ public class AlbumController {
     }
 
     //update name
-    @Path("/updateNameAlbum")
+    @Path("/{updateNameAlbum}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateNameAlbum(Albums albums) {

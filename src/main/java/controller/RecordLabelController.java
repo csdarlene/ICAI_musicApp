@@ -11,7 +11,6 @@ import java.util.List;
 public class RecordLabelController{
     private final RecordLabelService recordLabelService = new RecordLabelService();
 
-    @Path("/readRecordLabels")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<RecordLabels> readRecordLabels(){
@@ -24,27 +23,27 @@ public class RecordLabelController{
     public RecordLabels getRecordLabel(@PathParam("getRecordLabel") Long id){
         return recordLabelService.findRecordLabel(id);
     }
-    @Path ("/find/{findRecordLabel}")
+    @Path ("/{findRecordLabel}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public RecordLabels findRecordLabel(@PathParam("findRecordLabel") Long id){
         return recordLabelService.findRecordLabel(id);
     }
 
-    @Path("/createRecordLabel")
+    @Path("/{createRecordLabel}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createRecordLabel(RecordLabels recordLabels){
         recordLabelService.createRecordLabel(recordLabels);
     }
 
-    @Path ("/deleteRecordLabel")
+    @Path ("/{deleteRecordLabel}")
     @DELETE
     public void deleteRecordLabel(RecordLabels recordLabels){
         recordLabelService.deleteRecordLabel(recordLabels.getId());
     }
 
-    @Path ("/updateRecordLabel")
+    @Path ("/{updateRecordLabel}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateRecordLabel(RecordLabels recordLabels){

@@ -11,7 +11,6 @@ import java.util.List;
 public class SongController{
     private final SongService songService = new SongService();
 
-    @Path("/readSongs")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Songs> readSongs(){
@@ -25,34 +24,34 @@ public class SongController{
         return songService.findSong(id);
     }
 
-    @Path ("/find/{findSong}")
+    @Path ("/{findSong}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Songs findSong(@PathParam("findSong") Long id){
         return songService.findSong(id);
     }
 
-    @Path ("/getSongArtist")
+    @Path ("/{getSongArtist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void getSongArtsit(Songs songs){
          songService.getArtistSong(songs.getName());
     }
 
-    @Path("/createSong")
+    @Path("/{createSong}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createSong(Songs Songs){
         songService.createSongs(Songs);
     }
 
-    @Path ("/deleteSong")
+    @Path ("/{deleteSong}")
     @DELETE
     public void deleteSong(Songs songs){
         songService.deleteSong(songs.getId());
           }
 
-    @Path ("/updateSong")
+    @Path ("/{updateSong}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateSong(Songs songs){

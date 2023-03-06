@@ -11,7 +11,6 @@ import java.util.List;
 public class UserController {
     private final UserService userService = new UserService();
 
-    @Path("/readUsers")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Users> readUsers() {
@@ -25,7 +24,7 @@ public class UserController {
         return userService.findUser(id);
     }
 
-    @Path("/find/{findUser}")
+    @Path("/{findUser}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Users findUser(@PathParam("findUser") Long id) {
@@ -33,7 +32,7 @@ public class UserController {
     }
 
 
-    @Path("/getDetailsOfUser")
+    @Path("/{getDetailsOfUser}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void getDetailsOfUser(Users Users) {
@@ -41,27 +40,27 @@ public class UserController {
     }
 
 
-    @Path("/createUser")
+    @Path("/{createUser}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(Users User) {
         userService.createUsers(User);
     }
 
-    @Path("/deleteUser")
+    @Path("/{deleteUser}")
     @DELETE
     public void deleteUser(Users User) {
         userService.deleteUser(User.getId());
     }
 
-    @Path("/updatePasswordUser")
+    @Path("/{updatePasswordUser}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateNameUser(Users User) {
         userService.updateUserPassword(User.getId(), User.getPassword());
     }
 
-    @Path("/updateNameUser")
+    @Path("/{updateNameUser}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateEmailUser(Users User) {

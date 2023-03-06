@@ -12,7 +12,6 @@ import java.util.List;
 public class PlaylistController{
     private final PlaylistService playlistService = new PlaylistService();
 
-    @Path("/readPlaylists")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Playlists> readPlaylists(){
@@ -26,34 +25,34 @@ public class PlaylistController{
         return playlistService.findPlaylist(id);
     }
 
-    @Path ("/find/{findPlaylist}")
+    @Path ("/{findPlaylist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Playlists findPlaylist(@PathParam( "findPlaylist") Long id){
         return playlistService.findPlaylist(id);
     }
 
-    @Path ("/getUserPlaylist")
+    @Path ("/{getUserPlaylist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void getUserPlaylist(Playlists playlists){
         playlistService.getUserPlaylist(playlists.getName());
     }
 
-    @Path("/createPlaylist")
+    @Path("/{createPlaylist}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createPlaylist(Playlists playlists){
         playlistService.createPlaylists(playlists);
     }
 
-    @Path ("/deletePlaylist")
+    @Path ("/{deletePlaylist}")
     @DELETE
     public void deletePlaylist(Playlists playlists){
         playlistService.deletePlaylist(playlists.getId());
     }
 
-    @Path ("/updatePlaylist")
+    @Path ("/{updatePlaylist}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updatePlaylist(Playlists playlists){
