@@ -1,12 +1,12 @@
 # Progress
 ## CRUD
   create  
-✓ read: api werkt al  
+  read ✓  
   update  
-  delete  
+  delete ✓
 
 ## Web
-- ✓ Welcome page/ Sign in/ Sign up
+-  Welcome page/ Sign in/ Sign up ✓
 - CRUD page: album, artist, playlist record label, song, user detail & user
 - Front page: 
   - search
@@ -19,5 +19,5 @@
 - PUT
 - GET ✓
 - POST 
-- DELETE
+- DELETE ✓
   
