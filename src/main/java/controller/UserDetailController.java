@@ -24,28 +24,32 @@ public class UserDetailController{
         return userDetailService.getAllUserDetails();
     }
 
-    @Path("/{createUserDetail}")
+    @Path("/createUserDetail")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUserDetail(UserDetails userDetail){
         userDetailService.createUserDetails(userDetail);
     }
 
-    @Path ("/{deleteUserDetail}")
+    @Path ("/deleteUserDetail")
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void deleteUserDetail(UserDetails userDetail){
         userDetailService.deleteUserDetail(userDetail.getId());
     }
 
-    @Path ("/{updateNameUserDetail}")
+    @Path ("/updateNameUserDetail")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateNameUserDetail(UserDetails userDetail){
         userDetailService.updateUserDetailName(userDetail.getId(),userDetail.getName());
     }
-    @Path ("/{updateEmailUserDetail}")
+    @Path ("/updateEmailUserDetail")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateEmailUserDetail(UserDetails userDetail){
         userDetailService.updateUserDetailName(userDetail.getId(),userDetail.getEmail());
     }}

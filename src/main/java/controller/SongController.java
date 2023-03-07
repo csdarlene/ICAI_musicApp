@@ -31,29 +31,33 @@ public class SongController{
         return songService.findSong(id);
     }
 
-    @Path ("/{getSongArtist}")
+    @Path ("/getSongArtist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void getSongArtsit(Songs songs){
          songService.getArtistSong(songs.getName());
     }
 
-    @Path("/{createSong}")
+    @Path("/createSong")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void createSong(Songs Songs){
         songService.createSongs(Songs);
     }
 
-    @Path ("/{deleteSong}")
+    @Path ("/deleteSong")
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void deleteSong(Songs songs){
         songService.deleteSong(songs.getId());
           }
 
-    @Path ("/{updateSong}")
+    @Path ("/updateSong")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateSong(Songs songs){
         songService.updateSongName(songs.getId(),songs.getName());
     }}

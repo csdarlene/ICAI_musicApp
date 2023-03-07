@@ -30,22 +30,25 @@ public class RecordLabelController{
         return recordLabelService.findRecordLabel(id);
     }
 
-    @Path("/{createRecordLabel}")
+    @Path("/createRecordLabel")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createRecordLabel(RecordLabels recordLabels){
         recordLabelService.createRecordLabel(recordLabels);
     }
 
-    @Path ("/{deleteRecordLabel}")
+    @Path ("/deleteRecordLabel")
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void deleteRecordLabel(RecordLabels recordLabels){
         recordLabelService.deleteRecordLabel(recordLabels.getId());
     }
 
-    @Path ("/{updateRecordLabel}")
+    @Path ("/updateRecordLabel")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateRecordLabel(RecordLabels recordLabels){
         recordLabelService.updateRecordLabelName(recordLabels.getId(),recordLabels.getName());
     }

@@ -11,6 +11,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService = new UserService();
 
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Users> readUsers() {
@@ -32,7 +33,7 @@ public class UserController {
     }
 
 
-    @Path("/{getDetailsOfUser}")
+    @Path("/getDetailsOfUser")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void getDetailsOfUser(Users Users) {
@@ -40,29 +41,33 @@ public class UserController {
     }
 
 
-    @Path("/{createUser}")
+    @Path("/createUser")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(Users User) {
         userService.createUsers(User);
     }
 
-    @Path("/{deleteUser}")
+    @Path("/deleteUser")
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void deleteUser(Users User) {
         userService.deleteUser(User.getId());
     }
 
-    @Path("/{updatePasswordUser}")
+    @Path("/updatePasswordUser")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateNameUser(Users User) {
         userService.updateUserPassword(User.getId(), User.getPassword());
     }
 
-    @Path("/{updateNameUser}")
+    @Path("/updateNameUser")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateEmailUser(Users User) {
         userService.updateUserUsername(User.getId(), User.getUsername());
     }
@@ -70,6 +75,7 @@ public class UserController {
   /*  @Path("/signIn")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public boolean SignIn(String username,String password) {
        return userService.signIn(username, password);
     }*/

@@ -13,6 +13,7 @@ import java.util.List;
 public class ArtistController {
     private final ArtistService artistService = new ArtistService();
 
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Artists> readArtists() {
@@ -34,22 +35,25 @@ public class ArtistController {
         return artistService.findArtist(id);
     }
 
-    @Path("/{createArtists}")
+    @Path("/createArtists")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createArtist(Artists artists) {
         artistService.createArtist(artists);
     }
 
-    @Path("/{deleteArtist}")
+    @Path("/deleteArtist")
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void deleteArtist(Artists artists) {
         artistService.deleteArtist(artists.getId());
     }
 
-    @Path("/{updateArtist}")
+    @Path("/updateArtist")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updateArtist(Artists artists) {
         artistService.updateArtistName(artists.getId(), artists.getName());
     }

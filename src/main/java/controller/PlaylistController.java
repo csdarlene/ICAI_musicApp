@@ -32,29 +32,32 @@ public class PlaylistController{
         return playlistService.findPlaylist(id);
     }
 
-    @Path ("/{getUserPlaylist}")
+    @Path ("/getUserPlaylist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void getUserPlaylist(Playlists playlists){
         playlistService.getUserPlaylist(playlists.getName());
     }
 
-    @Path("/{createPlaylist}")
+    @Path("/createPlaylist")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createPlaylist(Playlists playlists){
         playlistService.createPlaylists(playlists);
     }
 
-    @Path ("/{deletePlaylist}")
+    @Path ("/deletePlaylist")
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void deletePlaylist(Playlists playlists){
         playlistService.deletePlaylist(playlists.getId());
     }
 
-    @Path ("/{updatePlaylist}")
+    @Path ("/updatePlaylist")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public void updatePlaylist(Playlists playlists){
         playlistService.updatePlaylistName(playlists.getId(),playlists.getName());
     }}

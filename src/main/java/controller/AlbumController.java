@@ -9,10 +9,9 @@ import jakarta.ws.rs.core.Response;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 @Path("/albums")
-public class AlbumController {
+public class AlbumController{
     private final AlbumService albumService = new AlbumService();
 
     @GET
@@ -48,9 +47,8 @@ public class AlbumController {
 
     @Path("/{id}")
     @DELETE
-    public Response deleteAlbum(@PathParam("id") Long id) {
+    public void deleteAlbum(@PathParam("id") Long id) {
         albumService.deleteAlbum(id);
-        return Response.status(Response.Status.OK).build();
     }
 
     //update year
@@ -61,14 +59,12 @@ public class AlbumController {
         albumService.updateAlbumYear(id, year);
         return Response.status(Response.Status.OK).build();
     }
-
-    //update name
-    @Path("/{updateNameAlbum}")
+    @Path ("/updateNameAlbum")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateNameAlbum(Albums albums) {
-        albumService.updateAlbumName(albums.getId(), albums.getName());
-        return Response.status(Response.Status.OK).build();
-    }
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateNameAlbum(Albums albums){
+        albumService.updateAlbumName(albums.getId(),albums.getName());
+        return Response.status(Response.Status.OK).build(); }
 
 }
