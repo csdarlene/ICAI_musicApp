@@ -21,16 +21,6 @@ public class AlbumRepository {
         return typedQuery.getResultList();
     }
 
-    public void createAlbums( Albums album ) {
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.persist(album);
-            entityManager.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-        }
-    }
 
     public Albums findAlbum(Long id) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("unasat_persistence");
@@ -57,12 +47,27 @@ public class AlbumRepository {
     public void deleteAlbum( Long id) {
         entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
+        try {
+            entityManager.getTransaction().begin();
         Albums albums = entityManager.find(Albums.class, id);
         System.out.println(albums.getName()+ " has been removed \n");
         entityManager.remove(albums);
 
         entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+    }
+    public void createAlbums( Albums album ) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(album);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
 
     public void updateAlbumYear( Long id, Integer year) {

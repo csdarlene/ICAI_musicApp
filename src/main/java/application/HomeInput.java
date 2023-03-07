@@ -104,9 +104,6 @@ public class HomeInput {
         createUser();
         if (createUser() == 1) {
             homePage();
-
-        } else {
-            signUp();
         }
     }
 
@@ -287,8 +284,6 @@ public class HomeInput {
                         scanner = new Scanner(System.in);
                         search = scanner.nextLine().toLowerCase();
                         userService.getDetailsOfUsers(search);
-
-                        System.out.println("\n" + menuHome);
                         return;
                     }
                     case 5:

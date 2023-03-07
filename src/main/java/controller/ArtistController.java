@@ -2,12 +2,9 @@ package controller;
 
 import entity.Artists;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 import service.ArtistService;
-
 import jakarta.ws.rs.core.MediaType;
-
-import java.util.List;
-
 
 @Path("artists")
 public class ArtistController {
@@ -16,8 +13,8 @@ public class ArtistController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Artists> readArtists() {
-        return artistService.getAllArtists();
+    public String readArtists() {
+        return artistService.getAllArtists().toString();
     }
 
 
@@ -28,11 +25,12 @@ public class ArtistController {
         return artistService.findArtist(id);
     }
 
-    @Path("/{findArtist}")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Artists findArtist(@PathParam("findArtist") Long id) {
-        return artistService.findArtist(id);
+
+    @Path("/{id}")
+    @DELETE
+    public Response deleteArtist(@PathParam("id") Long id) {
+        artistService.deleteArtist(id);
+        return Response.status(Response.Status.OK).build();
     }
 
     @Path("/createArtists")
@@ -42,13 +40,6 @@ public class ArtistController {
         artistService.createArtist(artists);
     }
 
-    @Path("/deleteArtist")
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public void deleteArtist(Artists artists) {
-        artistService.deleteArtist(artists.getId());
-    }
 
     @Path("/updateArtist")
     @PUT

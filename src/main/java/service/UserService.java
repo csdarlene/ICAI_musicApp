@@ -38,8 +38,8 @@ public class UserService {
 
     }
 
-    public void getDetailsOfUsers(String  username) {
-        userRepository.getDetailsOfUsers(username);
+    public List<Users> getDetailsOfUsers(String  username) {
+        return userRepository.getDetailsOfUsers(username);
     }
 
 //    public void signIn(String username, String password) {

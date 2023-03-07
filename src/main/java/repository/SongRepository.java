@@ -64,7 +64,7 @@ public class SongRepository {
         entityManager.getTransaction().commit();
     }
 
-    public void getArtistSong( String song ) {
+    public List<Songs> getArtistSong( String song ) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -76,7 +76,7 @@ public class SongRepository {
         System.out.println(songs);
         entityManager.getTransaction().commit();
         entityManager.close();
-
+return songs;
     }
 
 

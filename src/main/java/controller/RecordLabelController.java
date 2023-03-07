@@ -2,6 +2,7 @@ package controller;
 
 import entity.RecordLabels;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 import service.RecordLabelService;
 
 import jakarta.ws.rs.core.MediaType;
@@ -23,12 +24,13 @@ public class RecordLabelController{
     public RecordLabels getRecordLabel(@PathParam("getRecordLabel") Long id){
         return recordLabelService.findRecordLabel(id);
     }
-    @Path ("/{findRecordLabel}")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public RecordLabels findRecordLabel(@PathParam("findRecordLabel") Long id){
-        return recordLabelService.findRecordLabel(id);
-    }
+
+    @Path ("/{id}")
+    @DELETE
+    public Response deleteRecordLabel(@PathParam("id") Long id) {
+        recordLabelService.deleteRecordLabel(id);
+        return Response.status(Response.Status.OK).build();}
+
 
     @Path("/createRecordLabel")
     @POST
@@ -37,13 +39,6 @@ public class RecordLabelController{
         recordLabelService.createRecordLabel(recordLabels);
     }
 
-    @Path ("/deleteRecordLabel")
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public void deleteRecordLabel(RecordLabels recordLabels){
-        recordLabelService.deleteRecordLabel(recordLabels.getId());
-    }
 
     @Path ("/updateRecordLabel")
     @PUT

@@ -27,12 +27,13 @@ public class AlbumController{
         return albumService.findAlbum(id);
     }
 
-    @Path("/{findAlbum}")
-    @POST
-    @Consumes
-            (MediaType.APPLICATION_JSON)
-    public Albums findAlbum(@PathParam("findAlbum") Long id) {
-        return albumService.findAlbum(id);
+
+
+    @Path("/{id}")
+    @DELETE
+    public Response deleteAlbum(@PathParam("id") Long id) {
+        albumService.deleteAlbum(id);
+        return Response.status(Response.Status.OK).build();
     }
 
     //create
@@ -45,11 +46,6 @@ public class AlbumController{
 
     }
 
-    @Path("/{id}")
-    @DELETE
-    public void deleteAlbum(@PathParam("id") Long id) {
-        albumService.deleteAlbum(id);
-    }
 
     //update year
     @Path("/{id}&{year}")

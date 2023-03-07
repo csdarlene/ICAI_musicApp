@@ -34,8 +34,8 @@ public class SongService {
         return songRepository.findSong(id);
     }
 
-    public void getArtistSong( String song ) {
-        songRepository.getArtistSong(song);
+    public List<Songs> getArtistSong( String song ) {
+       return songRepository.getArtistSong(song);
 
     }
 }

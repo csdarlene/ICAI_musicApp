@@ -17,8 +17,8 @@ public class PlaylistService {
         return playlistRepository.getAllPlaylists();
     }
 
-    public void getUserPlaylist( String  username) {
-        playlistRepository.getUserPlaylist(username);
+    public List<Playlists> getUserPlaylist( String  username) {
+        return playlistRepository.getUserPlaylist(username);
     }
 
     public void createPlaylists( Playlists playlist ) {

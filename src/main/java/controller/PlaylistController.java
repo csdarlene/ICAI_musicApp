@@ -2,6 +2,7 @@ package controller;
 
 import entity.Playlists;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 import service.PlaylistService;
 
 import jakarta.ws.rs.core.MediaType;
@@ -25,18 +26,20 @@ public class PlaylistController{
         return playlistService.findPlaylist(id);
     }
 
-    @Path ("/{findPlaylist}")
-    @POST
+
+    @Path ("/UserPlaylist/{name}")
+    @GET
     @Consumes(MediaType.APPLICATION_JSON)
-    public Playlists findPlaylist(@PathParam( "findPlaylist") Long id){
-        return playlistService.findPlaylist(id);
+    public String getUserPlaylist(@PathParam("name") String name){
+        return playlistService.getUserPlaylist(name).toString();
     }
 
-    @Path ("/getUserPlaylist")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void getUserPlaylist(Playlists playlists){
-        playlistService.getUserPlaylist(playlists.getName());
+    @Path ("/{id}")
+    @DELETE
+    public Response deletePlaylist(@PathParam("id") Long id){
+        playlistService.deletePlaylist(id);
+        return Response.status(Response.Status.OK).build();
+
     }
 
     @Path("/createPlaylist")
@@ -46,13 +49,6 @@ public class PlaylistController{
         playlistService.createPlaylists(playlists);
     }
 
-    @Path ("/deletePlaylist")
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public void deletePlaylist(Playlists playlists){
-        playlistService.deletePlaylist(playlists.getId());
-    }
 
     @Path ("/updatePlaylist")
     @PUT

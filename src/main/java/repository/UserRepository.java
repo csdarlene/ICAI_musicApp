@@ -12,8 +12,8 @@ public class UserRepository {
 
     private final EntityManager entityManager;
 
-//UserService userService = new UserService();
-    public UserRepository( EntityManager entityManager ) {
+    //UserService userService = new UserService();
+    public UserRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -23,7 +23,7 @@ public class UserRepository {
         return typedQuery.getResultList();
     }
 
-    public void createUsers( Users users ) {
+    public void createUsers(Users users) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(users);
@@ -35,7 +35,7 @@ public class UserRepository {
 
     }
 
-    public Users findUser( Long id) {
+    public Users findUser(Long id) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -45,7 +45,7 @@ public class UserRepository {
         return users;
     }
 
-    public void updateUserUsername( Long id, String username) {
+    public void updateUserUsername(Long id, String username) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -57,18 +57,18 @@ public class UserRepository {
 
     }
 
-    public void deleteUser( Long id) {
+    public void deleteUser(Long id) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
         Users users = entityManager.find(Users.class, id);
-        System.out.println(users.getUsername()+ " has been removed \n");
+        System.out.println(users.getUsername() + " has been removed \n");
         entityManager.remove(users);
 
         entityManager.getTransaction().commit();
     }
 
-    public void updateUserPassword( Long id, String password) {
+    public void updateUserPassword(Long id, String password) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -80,18 +80,25 @@ public class UserRepository {
 
     }
 
-    public void getDetailsOfUsers( String name) {
-        entityManager.getEntityManagerFactory();
+    public List<Users> getDetailsOfUsers(String name) {
+        try {
 
-        entityManager.getTransaction().begin();
-        TypedQuery<entity.Users> query = entityManager.createQuery("from Users u JOIN UserDetails ud ON ud.id = u.userDetails.id where u.userDetails.name =?1", entity.Users.class);
-        query.setParameter(1, name);
+            entityManager.getEntityManagerFactory();
 
-        List<entity.Users> users = query.getResultList();
-        System.out.println(users);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+            entityManager.getTransaction().begin();
+            TypedQuery<entity.Users> query = entityManager.createQuery("from Users u JOIN UserDetails ud ON ud.id = u.userDetails.id where u.userDetails.name =?1", entity.Users.class);
+            query.setParameter(1, name);
 
+            List<entity.Users> users = query.getResultList();
+            System.out.println(users);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            return users;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 
 //    public void signIn(String username, String password) {
@@ -104,5 +111,5 @@ public class UserRepository {
 //        }
 //    }
 
-    }
+}
 

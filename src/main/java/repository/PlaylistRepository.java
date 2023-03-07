@@ -19,7 +19,7 @@ public class PlaylistRepository {
         return typedQuery.getResultList();
     }
 
-    public void getUserPlaylist( String username ) {
+    public List<Playlists> getUserPlaylist( String username ) {
         try {
 
         entityManager.getEntityManagerFactory();
@@ -31,11 +31,12 @@ public class PlaylistRepository {
         List<Playlists> playList = query.getResultList();
         System.out.println(playList);
         entityManager.getTransaction().commit();
+        return playList;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
-
     }
 
     public void createPlaylists( Playlists playlist ) {
