@@ -32,11 +32,11 @@ public class RecordLabelController{
         return Response.status(Response.Status.OK).build();}
 
 
-    @Path("/createRecordLabel")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createRecordLabel(RecordLabels recordLabels){
-        recordLabelService.createRecordLabel(recordLabels);
+    public RecordLabels createRecordLabel(RecordLabels recordLabels){
+        return recordLabelService.createRecordLabel(recordLabels);
     }
 
 

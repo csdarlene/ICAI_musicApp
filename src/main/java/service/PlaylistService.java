@@ -17,19 +17,19 @@ public class PlaylistService {
         return playlistRepository.getAllPlaylists();
     }
 
-    public List<Playlists> getUserPlaylist( String  username) {
+    public List<Playlists> getUserPlaylist(String username) {
         return playlistRepository.getUserPlaylist(username);
     }
 
-    public void createPlaylists( Playlists playlist ) {
-        playlistRepository.createPlaylists(playlist);
+    public Playlists createPlaylists(Playlists playlist) {
+        return playlistRepository.createPlaylists(playlist);
     }
 
-    public void deletePlaylist( Long id ) {
-        playlistRepository.deletePlaylist(id);
+    public Playlists deletePlaylist(Long id) {
+        return playlistRepository.deletePlaylist(id);
     }
 
-    public void updatePlaylistName( Long id, String name ) {
+    public void updatePlaylistName(Long id, String name) {
         playlistRepository.updatePlaylistName(id, name);
     }
 

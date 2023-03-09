@@ -7,11 +7,9 @@ import service.AlbumService;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 
 @Path("/albums")
-public class AlbumController{
+public class AlbumController {
     private final AlbumService albumService = new AlbumService();
 
     @GET
@@ -28,7 +26,6 @@ public class AlbumController{
     }
 
 
-
     @Path("/{id}")
     @DELETE
     public Response deleteAlbum(@PathParam("id") Long id) {
@@ -37,12 +34,12 @@ public class AlbumController{
     }
 
     //create
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createAlbum(Albums albums)throws URISyntaxException {
-        albumService.createAlbums(albums);
-        URI uri = new URI("/albums/"+albums.getId());
-        return Response.created(uri).build();
+    public Albums createAlbum(Albums albums) {
+        return albumService.createAlbums(albums);
+
 
     }
 
@@ -51,16 +48,18 @@ public class AlbumController{
     @Path("/{id}&{year}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateYearAlbum(@PathParam("id") Long id, @PathParam("year")Integer year) {
+    public Response updateYearAlbum(@PathParam("id") Long id, @PathParam("year") Integer year) {
         albumService.updateAlbumYear(id, year);
         return Response.status(Response.Status.OK).build();
     }
-    @Path ("/updateNameAlbum")
+
+    @Path("/updateNameAlbum")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateNameAlbum(Albums albums){
-        albumService.updateAlbumName(albums.getId(),albums.getName());
-        return Response.status(Response.Status.OK).build(); }
+    public Response updateNameAlbum(Albums albums) {
+        albumService.updateAlbumName(albums.getId(), albums.getName());
+        return Response.status(Response.Status.OK).build();
+    }
 
 }

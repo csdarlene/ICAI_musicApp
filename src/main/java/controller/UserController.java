@@ -39,11 +39,11 @@ public class UserController {
         return userService.getDetailsOfUsers(name).toString();
    }
 
-    @Path("/createUser")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createUser(Users User) {
-        userService.createUsers(User);
+    public Users createUser(Users User) {
+        return userService.createUsers(User);
     }
 
     @Path("/updatePasswordUser")

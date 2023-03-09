@@ -39,14 +39,16 @@ public class PlaylistRepository {
         }
     }
 
-    public void createPlaylists( Playlists playlist ) {
+    public Playlists createPlaylists( Playlists playlist ) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(playlist);
             entityManager.getTransaction().commit();
+            return playlist;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
 
     }
@@ -63,7 +65,8 @@ public class PlaylistRepository {
 
     }
 
-    public void deletePlaylist( Long id ) {
+    public Playlists deletePlaylist( Long id ) {
+        try{
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -72,6 +75,12 @@ public class PlaylistRepository {
         entityManager.remove(playlists);
 
         entityManager.getTransaction().commit();
+        return playlists;
+    } catch (Exception e) {
+        e.printStackTrace();
+        entityManager.getTransaction().rollback();
+        return null;
+    }
     }
     public Playlists findPlaylist(Long id) {
         entityManager.getEntityManagerFactory();

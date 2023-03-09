@@ -39,12 +39,11 @@ public class SongController{
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/createSong")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public void createSong(Songs Songs){
-        songService.createSongs(Songs);
+    public Songs createSong(Songs Songs){
+        return songService.createSongs(Songs);
     }
 
 

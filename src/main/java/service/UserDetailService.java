@@ -17,19 +17,19 @@ public class UserDetailService {
         return userDetailRepository.getAllUserDetails();
     }
 
-    public void createUserDetails( UserDetails userDetail ) {
-        userDetailRepository.createUserDetails(userDetail);
+    public UserDetails createUserDetails(UserDetails userDetail) {
+        return userDetailRepository.createUserDetails(userDetail);
     }
 
-    public void deleteUserDetail( Long id) {
-        userDetailRepository.deleteUserDetail(id);
+    public UserDetails deleteUserDetail(Long id) {
+        return userDetailRepository.deleteUserDetail(id);
     }
 
-    public void updateUserDetailEmail( Long id, String mail){
+    public void updateUserDetailEmail(Long id, String mail) {
         userDetailRepository.updateUserDetailEmail(id, mail);
     }
 
-    public void updateUserDetailName( Long id, String name){
+    public void updateUserDetailName(Long id, String name) {
         userDetailRepository.updateUserDetailName(id, name);
     }
 }

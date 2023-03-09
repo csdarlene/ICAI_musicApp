@@ -19,14 +19,16 @@ public class RecordLabelRepository {
         return typedQuery.getResultList();
     }
 
-    public void createRecordLabel( RecordLabels recordLabels ) {
+    public RecordLabels createRecordLabel( RecordLabels recordLabels ) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(recordLabels);
             entityManager.getTransaction().commit();
+            return recordLabels;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
 
     }
@@ -53,7 +55,9 @@ public class RecordLabelRepository {
 
     }
 
-    public void deleteRecordLabel( Long id) {
+    public RecordLabels deleteRecordLabel( Long id) {
+        try {
+
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -62,6 +66,12 @@ public class RecordLabelRepository {
         entityManager.remove(recordLabels);
 
         entityManager.getTransaction().commit();
+            return recordLabels;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 }
 

@@ -37,6 +37,10 @@ public class Playlists {
         this.songSet = songSet;
     }
 
+    public Playlists(String name) {
+        this.name = name;
+    }
+
     public Playlists() {
     }
 

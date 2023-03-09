@@ -9,7 +9,7 @@ import java.util.List;
 public class ArtistRepository {
     private final EntityManager entityManager;
 
-    public ArtistRepository( EntityManager entityManager ) {
+    public ArtistRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -19,14 +19,16 @@ public class ArtistRepository {
         return typedQuery.getResultList();
     }
 
-    public void createArtists( Artists artist ) {
+    public Artists createArtists(Artists artist) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(artist);
             entityManager.getTransaction().commit();
+            return artist;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
 
     }
@@ -41,18 +43,25 @@ public class ArtistRepository {
         return artists;
     }
 
-    public void deleteArtist( Long id) {
-        entityManager.getEntityManagerFactory();
+    public Artists deleteArtist(Long id) {
+        try {
+            entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
-        Artists artists = entityManager.find(Artists.class, id);
-        System.out.println(artists.getName()+ " has been removed \n");
-        entityManager.remove(artists);
+            entityManager.getTransaction().begin();
+            Artists artists = entityManager.find(Artists.class, id);
+            System.out.println(artists.getName() + " has been removed \n");
+            entityManager.remove(artists);
 
-        entityManager.getTransaction().commit();
+            entityManager.getTransaction().commit();
+            return artists;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 
-    public void updateArtistName( Long id, String name) {
+    public void updateArtistName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();

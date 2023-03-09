@@ -10,7 +10,7 @@ public class UserDetailRepository {
 
     private final EntityManager entityManager;
 
-    public UserDetailRepository( EntityManager entityManager ) {
+    public UserDetailRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -20,19 +20,21 @@ public class UserDetailRepository {
         return typedQuery.getResultList();
     }
 
-    public void createUserDetails( UserDetails userDetails ) {
+    public UserDetails createUserDetails(UserDetails userDetails) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(userDetails);
             entityManager.getTransaction().commit();
+            return userDetails;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
 
     }
 
-    public void updateUserDetailName( Long id, String name) {
+    public void updateUserDetailName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -44,18 +46,25 @@ public class UserDetailRepository {
 
     }
 
-    public void deleteUserDetail( Long id) {
-        entityManager.getEntityManagerFactory();
+    public UserDetails deleteUserDetail(Long id) {
+        try {
+            entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
-        UserDetails userDetails = entityManager.find(UserDetails.class, id);
-        System.out.println(userDetails.getName()+ " has been removed \n");
-        entityManager.remove(userDetails);
+            entityManager.getTransaction().begin();
+            UserDetails userDetails = entityManager.find(UserDetails.class, id);
+            System.out.println(userDetails.getName() + " has been removed \n");
+            entityManager.remove(userDetails);
 
-        entityManager.getTransaction().commit();
+            entityManager.getTransaction().commit();
+            return userDetails;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 
-    public void updateUserDetailEmail( Long id, String mail) {
+    public void updateUserDetailEmail(Long id, String mail) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();

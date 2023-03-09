@@ -11,7 +11,7 @@ import java.util.List;
 public class AlbumRepository {
     private final EntityManager entityManager;
 
-    public AlbumRepository( EntityManager entityManager ) {
+    public AlbumRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -31,10 +31,10 @@ public class AlbumRepository {
         System.out.println(albums.toString());
         entityManager.getTransaction().commit();
         return albums;
-        }
+    }
 
-    public void updateAlbumName( Long id, String name) {
-    entityManager.getEntityManagerFactory();
+    public void updateAlbumName(Long id, String name) {
+        entityManager.getEntityManagerFactory();
         entityManager.getTransaction().begin();
 
         Albums albums = entityManager.find(Albums.class, id);
@@ -44,33 +44,37 @@ public class AlbumRepository {
 
     }
 
-    public void deleteAlbum( Long id) {
+    public Albums deleteAlbum(Long id) {
         entityManager.getEntityManagerFactory();
 
         try {
             entityManager.getTransaction().begin();
-        Albums albums = entityManager.find(Albums.class, id);
-        System.out.println(albums.getName()+ " has been removed \n");
-        entityManager.remove(albums);
-
-        entityManager.getTransaction().commit();
+            Albums albums = entityManager.find(Albums.class, id);
+            System.out.println(albums.getName() + " has been removed \n");
+            entityManager.remove(albums);
+            entityManager.getTransaction().commit();
+            return albums;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
     }
-    public void createAlbums( Albums album ) {
+
+    public Albums createAlbums(Albums album) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(album);
             entityManager.getTransaction().commit();
+            return album;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
     }
 
-    public void updateAlbumYear( Long id, Integer year) {
+    public void updateAlbumYear(Long id, Integer year) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();

@@ -17,21 +17,20 @@ public class ArtistService {
         return artistRepository.getAllArtists();
     }
 
-    public void createArtist( Artists artist ) {
-        artistRepository.createArtists(artist);
+    public Artists createArtist(Artists artist) {
+        return artistRepository.createArtists(artist);
     }
 
-    public Artists findArtist(Long id)
-    {
+    public Artists findArtist(Long id) {
         return artistRepository.findArtist(id);
     }
 
-    public void updateArtistName( Long id, String name){
+    public void updateArtistName(Long id, String name) {
         artistRepository.updateArtistName(id, name);
     }
 
-    public void deleteArtist( Long id){
-        artistRepository.deleteArtist(id);
+    public Artists deleteArtist(Long id) {
+        return artistRepository.deleteArtist(id);
     }
 
 

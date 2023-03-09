@@ -9,7 +9,7 @@ import java.util.List;
 public class SongRepository {
     private final EntityManager entityManager;
 
-    public SongRepository( EntityManager entityManager ) {
+    public SongRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -19,19 +19,21 @@ public class SongRepository {
         return typedQuery.getResultList();
     }
 
-    public void createSongs( Songs songs ) {
+    public Songs createSongs(Songs songs) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(songs);
             entityManager.getTransaction().commit();
+            return songs;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
 
     }
 
-    public Songs findSong( Long id ) {
+    public Songs findSong(Long id) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -41,7 +43,7 @@ public class SongRepository {
         return songs;
     }
 
-    public void updateSongName( Long id, String name ) {
+    public void updateSongName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -53,33 +55,40 @@ public class SongRepository {
 
     }
 
-    public void deleteSong( Long id ) {
-        entityManager.getEntityManagerFactory();
+    public Songs deleteSong(Long id) {
+        try {
+            entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
-        Songs songs = entityManager.find(Songs.class, id);
-        System.out.println(songs.getName() + " has been removed \n");
-        entityManager.remove(songs);
+            entityManager.getTransaction().begin();
+            Songs songs = entityManager.find(Songs.class, id);
+            System.out.println(songs.getName() + " has been removed \n");
+            entityManager.remove(songs);
 
-        entityManager.getTransaction().commit();
+            entityManager.getTransaction().commit();
+            return songs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 
-    public List<Songs> getArtistSong( String song ) {
+    public List<Songs> getArtistSong(String song) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
         TypedQuery<Songs> query = entityManager.createQuery("select s.artistSet from Songs s where s.name =?1", Songs.class);
 
-        query.setParameter(1, song );
+        query.setParameter(1, song);
 
         List<Songs> songs = query.getResultList();
         System.out.println(songs);
         entityManager.getTransaction().commit();
         entityManager.close();
-return songs;
+        return songs;
     }
 
 
- }
+}
 
 

@@ -3,7 +3,7 @@ package repository;
 import entity.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import service.UserService;
+
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ public class UserRepository {
 
     private final EntityManager entityManager;
 
-    //UserService userService = new UserService();
     public UserRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -23,14 +22,16 @@ public class UserRepository {
         return typedQuery.getResultList();
     }
 
-    public void createUsers(Users users) {
+    public Users createUsers(Users users) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(users);
             entityManager.getTransaction().commit();
+            return users;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
+            return null;
         }
 
     }
@@ -57,15 +58,22 @@ public class UserRepository {
 
     }
 
-    public void deleteUser(Long id) {
-        entityManager.getEntityManagerFactory();
+    public Users deleteUser(Long id) {
+        try {
+            entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
-        Users users = entityManager.find(Users.class, id);
-        System.out.println(users.getUsername() + " has been removed \n");
-        entityManager.remove(users);
+            entityManager.getTransaction().begin();
+            Users users = entityManager.find(Users.class, id);
+            System.out.println(users.getUsername() + " has been removed \n");
+            entityManager.remove(users);
 
-        entityManager.getTransaction().commit();
+            entityManager.getTransaction().commit();
+            return users;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 
     public void updateUserPassword(Long id, String password) {
@@ -100,16 +108,6 @@ public class UserRepository {
             return null;
         }
     }
-
-//    public void signIn(String username, String password) {
-//        if (("admin".equals(username)) && ("ADMIN".equals(password))) {
-//            return;
-//        }
-//        for (Users u : userService.getAllUsers()) {
-//            if ((u.getUsername().equals(username)) && u.getPassword().equals(password)) {
-//           return; }
-//        }
-//    }
 
 }
 

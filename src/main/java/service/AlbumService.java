@@ -17,26 +17,27 @@ public class AlbumService {
         return albumRepository.getAllAlbums();
     }
 
-    public void createAlbums( Albums albums) {
-        albumRepository.createAlbums(albums);
+    public Albums createAlbums(Albums albums) {
+        return albumRepository.createAlbums(albums);
     }
 
-    public void deleteAlbum( Long id) {
-        albumRepository.deleteAlbum(id);
+    public Albums deleteAlbum(Long id) {
+        return albumRepository.deleteAlbum(id);
     }
 
-    public void updateAlbumYear( Long id, Integer year) {
+    public void updateAlbumYear(Long id, Integer year) {
         albumRepository.updateAlbumYear(id, year);
     }
 
-    public void updateAlbumName( Long id, String name) {
+    public void updateAlbumName(Long id, String name) {
         albumRepository.updateAlbumName(id, name);
     }
 
     public Albums findAlbum(Long id) {
 
         return albumRepository.findAlbum(id);
-    }}
+    }
+}
 
 
 

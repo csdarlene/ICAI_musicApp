@@ -18,24 +18,24 @@ public class SongService {
         return songRepository.getAllSongs();
     }
 
-    public void createSongs( Songs songs ) {
-        songRepository.createSongs(songs);
+    public Songs createSongs(Songs songs) {
+        return songRepository.createSongs(songs);
     }
 
-    public void updateSongName( Long id, String name ) {
+    public void updateSongName(Long id, String name) {
         songRepository.updateSongName(id, name);
     }
 
-    public void deleteSong( Long id ) {
-        songRepository.deleteSong(id);
+    public Songs deleteSong(Long id) {
+        return songRepository.deleteSong(id);
     }
 
-    public Songs findSong( Long id ) {
+    public Songs findSong(Long id) {
         return songRepository.findSong(id);
     }
 
-    public List<Songs> getArtistSong( String song ) {
-       return songRepository.getArtistSong(song);
+    public List<Songs> getArtistSong(String song) {
+        return songRepository.getArtistSong(song);
 
     }
 }

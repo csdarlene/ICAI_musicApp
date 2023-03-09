@@ -1,6 +1,6 @@
 # Progress
 ## CRUD
-  create  
+  create ✓ 
   read ✓  
   update  
   delete ✓
@@ -18,6 +18,10 @@
 ## Requests
 - PUT
 - GET ✓
-- POST 
+- POST ✓
 - DELETE ✓
   
+##
+Opmerkingen (fix)
+- POST: 1-* & * - * 
+- 

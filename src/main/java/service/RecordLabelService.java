@@ -17,20 +17,20 @@ public class RecordLabelService {
         return recordLabelRepository.getAllRecordLabels();
     }
 
-    public void createRecordLabel( RecordLabels recordLabels ) {
-        recordLabelRepository.createRecordLabel(recordLabels);
+    public RecordLabels createRecordLabel(RecordLabels recordLabels) {
+        return recordLabelRepository.createRecordLabel(recordLabels);
     }
 
-    public RecordLabels findRecordLabel( Long id){
+    public RecordLabels findRecordLabel(Long id) {
         return recordLabelRepository.findRecordLabel(id);
     }
 
-    public void updateRecordLabelName( Long id, String name){
+    public void updateRecordLabelName(Long id, String name) {
         recordLabelRepository.updateRecordLabelName(id, name);
     }
 
-    public void deleteRecordLabel( Long id){
-        recordLabelRepository.deleteRecordLabel(id);
+    public RecordLabels deleteRecordLabel(Long id) {
+        return recordLabelRepository.deleteRecordLabel(id);
 
     }
 }

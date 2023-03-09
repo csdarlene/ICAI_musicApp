@@ -33,11 +33,11 @@ public class ArtistController {
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/createArtists")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createArtist(Artists artists) {
-        artistService.createArtist(artists);
+    public Artists createArtist(Artists artists) {
+        return artistService.createArtist(artists);
     }
 
 

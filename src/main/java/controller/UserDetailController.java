@@ -26,11 +26,11 @@ public class UserDetailController {
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/createUserDetail")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createUserDetail(UserDetails userDetail) {
-        userDetailService.createUserDetails(userDetail);
+    public UserDetails createUserDetail(UserDetails userDetail) {
+        return userDetailService.createUserDetails(userDetail);
     }
 
 

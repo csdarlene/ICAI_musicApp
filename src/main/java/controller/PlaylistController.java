@@ -42,11 +42,11 @@ public class PlaylistController{
 
     }
 
-    @Path("/createPlaylist")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createPlaylist(Playlists playlists){
-        playlistService.createPlaylists(playlists);
+    public Playlists createPlaylist(Playlists playlists){
+        return playlistService.createPlaylists(playlists);
     }
 
 

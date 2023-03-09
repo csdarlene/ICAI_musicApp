@@ -11,14 +11,14 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique=true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
     @OneToOne
-    @JoinColumn(name="userDetails_id")
+    @JoinColumn(name = "userDetails_id")
     private UserDetails userDetails;
 
     @OneToMany
@@ -28,17 +28,22 @@ public class Users {
     public Users() {
     }
 
-    public Users( String username, String password, UserDetails userDetails ) {
+    public Users(String username, String password, UserDetails userDetails) {
         this.username = username;
         this.password = password;
         this.userDetails = userDetails;
+    }
+
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId( Long id ) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,7 +51,7 @@ public class Users {
         return username;
     }
 
-    public void setUsername( String username ) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -54,7 +59,7 @@ public class Users {
         return password;
     }
 
-    public void setPassword( String password ) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -62,11 +67,11 @@ public class Users {
         return playLists;
     }
 
-    public void setPlayLists( List<Playlists> playLists ) {
+    public void setPlayLists(List<Playlists> playLists) {
         this.playLists = playLists;
     }
 
-    public void setUserDetails( UserDetails userDetails ) {
+    public void setUserDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
     }
 
@@ -74,7 +79,7 @@ public class Users {
     public String toString() {
         return "Users: " +
                 "id=" + id +
-                ", username= " + username  +
+                ", username= " + username +
                 ", password = ******* " +
                 userDetails;
     }
