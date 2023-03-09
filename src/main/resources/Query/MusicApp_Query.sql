@@ -85,6 +85,12 @@ from playlist_songs ps
 where p.name = 'workout playlist';
 
 
+
+select p.name Playlists, u.username User
+from playlists p
+         JOIN users u ON p.user_id = u.id
+where u.username='snowman';
+
 -- join tables
 select *
 from users;
