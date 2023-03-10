@@ -39,8 +39,6 @@ public class AlbumController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Albums createAlbum(Albums albums) {
         return albumService.createAlbums(albums);
-
-
     }
 
 

@@ -25,12 +25,12 @@ public class AlbumService {
         return albumRepository.deleteAlbum(id);
     }
 
-    public void updateAlbumYear(Long id, Integer year) {
-        albumRepository.updateAlbumYear(id, year);
+    public Albums updateAlbumYear(Long id, Integer year) {
+        return albumRepository.updateAlbumYear(id, year);
     }
 
-    public void updateAlbumName(Long id, String name) {
-        albumRepository.updateAlbumName(id, name);
+    public Albums updateAlbumName(Long id, String name) {
+        return albumRepository.updateAlbumName(id, name);
     }
 
     public Albums findAlbum(Long id) {

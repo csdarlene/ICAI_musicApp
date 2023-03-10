@@ -33,16 +33,6 @@ public class AlbumRepository {
         return albums;
     }
 
-    public void updateAlbumName(Long id, String name) {
-        entityManager.getEntityManagerFactory();
-        entityManager.getTransaction().begin();
-
-        Albums albums = entityManager.find(Albums.class, id);
-        albums.setName(name);
-        System.out.println(albums);
-        entityManager.getTransaction().commit();
-
-    }
 
     public Albums deleteAlbum(Long id) {
         entityManager.getEntityManagerFactory();
@@ -74,7 +64,18 @@ public class AlbumRepository {
         }
     }
 
-    public void updateAlbumYear(Long id, Integer year) {
+    public Albums updateAlbumName(Long id, String name) {
+        entityManager.getEntityManagerFactory();
+        entityManager.getTransaction().begin();
+
+        Albums albums = entityManager.find(Albums.class, id);
+        albums.setName(name);
+        System.out.println(albums);
+        entityManager.getTransaction().commit();
+        return albums;
+    }
+
+    public Albums updateAlbumYear(Long id, Integer year) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -83,6 +84,7 @@ public class AlbumRepository {
         albums.setYear(year);
         System.out.println(albums);
         entityManager.getTransaction().commit();
+        return albums;
 
     }
 
