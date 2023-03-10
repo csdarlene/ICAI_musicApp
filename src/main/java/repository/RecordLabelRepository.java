@@ -9,7 +9,7 @@ import java.util.List;
 public class RecordLabelRepository {
     private final EntityManager entityManager;
 
-    public RecordLabelRepository( EntityManager entityManager ) {
+    public RecordLabelRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -19,7 +19,7 @@ public class RecordLabelRepository {
         return typedQuery.getResultList();
     }
 
-    public RecordLabels createRecordLabel( RecordLabels recordLabels ) {
+    public RecordLabels createRecordLabel(RecordLabels recordLabels) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(recordLabels);
@@ -33,7 +33,7 @@ public class RecordLabelRepository {
 
     }
 
-    public RecordLabels findRecordLabel( Long id) {
+    public RecordLabels findRecordLabel(Long id) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -43,7 +43,7 @@ public class RecordLabelRepository {
         return recordLabels;
     }
 
-    public void updateRecordLabelName( Long id, String name) {
+    public RecordLabels updateRecordLabelName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -52,20 +52,20 @@ public class RecordLabelRepository {
         recordLabels.setName(name);
         System.out.println(recordLabels);
         entityManager.getTransaction().commit();
-
+        return recordLabels;
     }
 
-    public RecordLabels deleteRecordLabel( Long id) {
+    public RecordLabels deleteRecordLabel(Long id) {
         try {
 
-        entityManager.getEntityManagerFactory();
+            entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
-        RecordLabels recordLabels = entityManager.find(RecordLabels.class, id);
-        System.out.println(recordLabels.getName()+ " has been removed \n");
-        entityManager.remove(recordLabels);
+            entityManager.getTransaction().begin();
+            RecordLabels recordLabels = entityManager.find(RecordLabels.class, id);
+            System.out.println(recordLabels.getName() + " has been removed \n");
+            entityManager.remove(recordLabels);
 
-        entityManager.getTransaction().commit();
+            entityManager.getTransaction().commit();
             return recordLabels;
         } catch (Exception e) {
             e.printStackTrace();

@@ -9,7 +9,7 @@ import java.util.List;
 public class PlaylistRepository {
     private final EntityManager entityManager;
 
-    public PlaylistRepository( EntityManager entityManager ) {
+    public PlaylistRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -19,19 +19,19 @@ public class PlaylistRepository {
         return typedQuery.getResultList();
     }
 
-    public List<Playlists> getUserPlaylist( String username ) {
+    public List<Playlists> getUserPlaylist(String username) {
         try {
 
-        entityManager.getEntityManagerFactory();
+            entityManager.getEntityManagerFactory();
 
-        entityManager.getTransaction().begin();
-        TypedQuery<Playlists> query = entityManager.createQuery("select p.name from Playlists p where p.user.username =?1", Playlists.class);
-        query.setParameter(1, username);
+            entityManager.getTransaction().begin();
+            TypedQuery<Playlists> query = entityManager.createQuery("select p.name from Playlists p where p.user.username =?1", Playlists.class);
+            query.setParameter(1, username);
 
-        List<Playlists> playList = query.getResultList();
-        System.out.println(playList);
-        entityManager.getTransaction().commit();
-        return playList;
+            List<Playlists> playList = query.getResultList();
+            System.out.println(playList);
+            entityManager.getTransaction().commit();
+            return playList;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -39,7 +39,7 @@ public class PlaylistRepository {
         }
     }
 
-    public Playlists createPlaylists( Playlists playlist ) {
+    public Playlists createPlaylists(Playlists playlist) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(playlist);
@@ -53,7 +53,7 @@ public class PlaylistRepository {
 
     }
 
-    public void updatePlaylistName( Long id, String name ) {
+    public Playlists updatePlaylistName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -62,26 +62,27 @@ public class PlaylistRepository {
         playlists.setName(name);
         System.out.println(playlists);
         entityManager.getTransaction().commit();
-
-    }
-
-    public Playlists deletePlaylist( Long id ) {
-        try{
-        entityManager.getEntityManagerFactory();
-
-        entityManager.getTransaction().begin();
-        Playlists playlists = entityManager.find(Playlists.class, id);
-        System.out.println(playlists.getName() + " has been removed \n");
-        entityManager.remove(playlists);
-
-        entityManager.getTransaction().commit();
         return playlists;
-    } catch (Exception e) {
-        e.printStackTrace();
-        entityManager.getTransaction().rollback();
-        return null;
     }
+
+    public Playlists deletePlaylist(Long id) {
+        try {
+            entityManager.getEntityManagerFactory();
+
+            entityManager.getTransaction().begin();
+            Playlists playlists = entityManager.find(Playlists.class, id);
+            System.out.println(playlists.getName() + " has been removed \n");
+            entityManager.remove(playlists);
+
+            entityManager.getTransaction().commit();
+            return playlists;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
+
     public Playlists findPlaylist(Long id) {
         entityManager.getEntityManagerFactory();
 

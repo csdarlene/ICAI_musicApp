@@ -22,8 +22,8 @@ public class SongService {
         return songRepository.createSongs(songs);
     }
 
-    public void updateSongName(Long id, String name) {
-        songRepository.updateSongName(id, name);
+    public Songs updateSongName(Long id, String name) {
+        return songRepository.updateSongName(id, name);
     }
 
     public Songs deleteSong(Long id) {

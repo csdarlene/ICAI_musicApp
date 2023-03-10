@@ -25,8 +25,8 @@ public class ArtistService {
         return artistRepository.findArtist(id);
     }
 
-    public void updateArtistName(Long id, String name) {
-        artistRepository.updateArtistName(id, name);
+    public Artists updateArtistName(Long id, String name) {
+        return artistRepository.updateArtistName(id, name);
     }
 
     public Artists deleteArtist(Long id) {

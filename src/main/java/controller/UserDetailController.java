@@ -34,19 +34,21 @@ public class UserDetailController {
     }
 
 
-    @Path("/updateNameUserDetail")
+    @Path("/{id}/name")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateNameUserDetail(UserDetails userDetail) {
-        userDetailService.updateUserDetailName(userDetail.getId(), userDetail.getName());
+    public Response updateNameUserDetail(@PathParam("id") Long id, String name) {
+        userDetailService.updateUserDetailName(id, name);
+        return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/updateEmailUserDetail")
+    @Path("/{id}/email")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateEmailUserDetail(UserDetails userDetail) {
-        userDetailService.updateUserDetailName(userDetail.getId(), userDetail.getEmail());
+    public Response updateEmailUserDetail(@PathParam("id") Long id, String email) {
+        userDetailService.updateUserDetailEmail(id, email);
+        return Response.status(Response.Status.OK).build();
     }
 }

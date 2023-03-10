@@ -30,12 +30,12 @@ public class UserService {
         return userRepository.deleteUser(id);
     }
 
-    public void updateUserUsername(Long id, String username) {
-        userRepository.updateUserUsername(id, username);
+    public Users updateUserUsername(Long id, String username) {
+        return userRepository.updateUserUsername(id, username);
     }
 
-    public void updateUserPassword(Long id, String password) {
-        userRepository.updateUserPassword(id, password);
+    public Users updateUserPassword(Long id, String password) {
+        return userRepository.updateUserPassword(id, password);
 
     }
 

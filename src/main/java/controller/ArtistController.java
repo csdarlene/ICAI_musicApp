@@ -10,13 +10,11 @@ import jakarta.ws.rs.core.MediaType;
 public class ArtistController {
     private final ArtistService artistService = new ArtistService();
 
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String readArtists() {
         return artistService.getAllArtists().toString();
     }
-
 
     @Path("/{getArtist}")
     @GET
@@ -24,7 +22,6 @@ public class ArtistController {
     public Artists getArtist(@PathParam("getArtist") Long id) {
         return artistService.findArtist(id);
     }
-
 
     @Path("/{id}")
     @DELETE
@@ -40,14 +37,13 @@ public class ArtistController {
         return artistService.createArtist(artists);
     }
 
-
-    @Path("/updateArtist")
+    @Path("/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateArtist(Artists artists) {
-        artistService.updateArtistName(artists.getId(), artists.getName());
+    public Response updateArtist(@PathParam("id") Long id, String name) {
+        artistService.updateArtistName(id, name);
+        return Response.status(Response.Status.OK).build();
     }
-
 
 }

@@ -6,6 +6,7 @@ import jakarta.ws.rs.core.Response;
 import service.UserService;
 
 import jakarta.ws.rs.core.MediaType;
+
 import java.util.List;
 
 @Path("users")
@@ -35,9 +36,9 @@ public class UserController {
     @Path("/DetailsOfUser/{name}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getDetailsOfUser(@PathParam("name") String name)  {
+    public String getDetailsOfUser(@PathParam("name") String name) {
         return userService.getDetailsOfUsers(name).toString();
-   }
+    }
 
     @Path("/create")
     @POST
@@ -46,27 +47,22 @@ public class UserController {
         return userService.createUsers(User);
     }
 
-    @Path("/updatePasswordUser")
+    @Path("/{id}/password")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateNameUser(Users User) {
-        userService.updateUserPassword(User.getId(), User.getPassword());
+    public Response updateNameUser(@PathParam("id") Long id, String password) {
+        userService.updateUserPassword(id, password);
+        return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/updateNameUser")
+    @Path("/{id}/username")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateEmailUser(Users User) {
-        userService.updateUserUsername(User.getId(), User.getUsername());
+    public Response updateEmailUser(@PathParam("id") Long id, String username) {
+        userService.updateUserUsername(id, username);
+        return Response.status(Response.Status.OK).build();
     }
 
-  /*  @Path("/signIn")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public boolean SignIn(String username,String password) {
-       return userService.signIn(username, password);
-    }*/
 }

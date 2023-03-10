@@ -29,8 +29,8 @@ public class PlaylistService {
         return playlistRepository.deletePlaylist(id);
     }
 
-    public void updatePlaylistName(Long id, String name) {
-        playlistRepository.updatePlaylistName(id, name);
+    public Playlists updatePlaylistName(Long id, String name) {
+        return playlistRepository.updatePlaylistName(id, name);
     }
 
     public Playlists findPlaylist(Long id) {

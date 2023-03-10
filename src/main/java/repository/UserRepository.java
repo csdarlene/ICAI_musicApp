@@ -46,7 +46,7 @@ public class UserRepository {
         return users;
     }
 
-    public void updateUserUsername(Long id, String username) {
+    public Users updateUserUsername(Long id, String username) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -55,7 +55,19 @@ public class UserRepository {
         users.setUsername(username);
         System.out.println(users);
         entityManager.getTransaction().commit();
+        return users;
+    }
 
+    public Users updateUserPassword(Long id, String password) {
+        entityManager.getEntityManagerFactory();
+
+        entityManager.getTransaction().begin();
+
+        Users users = entityManager.find(Users.class, id);
+        users.setPassword(password);
+        System.out.println(users);
+        entityManager.getTransaction().commit();
+        return users;
     }
 
     public Users deleteUser(Long id) {
@@ -76,17 +88,6 @@ public class UserRepository {
         }
     }
 
-    public void updateUserPassword(Long id, String password) {
-        entityManager.getEntityManagerFactory();
-
-        entityManager.getTransaction().begin();
-
-        Users users = entityManager.find(Users.class, id);
-        users.setPassword(password);
-        System.out.println(users);
-        entityManager.getTransaction().commit();
-
-    }
 
     public List<Users> getDetailsOfUsers(String name) {
         try {

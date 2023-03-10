@@ -10,33 +10,33 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("playlists")
-public class PlaylistController{
+public class PlaylistController {
     private final PlaylistService playlistService = new PlaylistService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Playlists> readPlaylists(){
+    public List<Playlists> readPlaylists() {
         return playlistService.getAllPlaylists();
     }
 
-    @Path ("/{getPlaylist}")
+    @Path("/{getPlaylist}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Playlists getPlaylist(@PathParam( "getPlaylist") Long id){
+    public Playlists getPlaylist(@PathParam("getPlaylist") Long id) {
         return playlistService.findPlaylist(id);
     }
 
 
-    @Path ("/UserPlaylist/{name}")
+    @Path("/UserPlaylist/{name}")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
-    public String getUserPlaylist(@PathParam("name") String name){
+    public String getUserPlaylist(@PathParam("name") String name) {
         return playlistService.getUserPlaylist(name).toString();
     }
 
-    @Path ("/{id}")
+    @Path("/{id}")
     @DELETE
-    public Response deletePlaylist(@PathParam("id") Long id){
+    public Response deletePlaylist(@PathParam("id") Long id) {
         playlistService.deletePlaylist(id);
         return Response.status(Response.Status.OK).build();
 
@@ -45,15 +45,17 @@ public class PlaylistController{
     @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Playlists createPlaylist(Playlists playlists){
+    public Playlists createPlaylist(Playlists playlists) {
         return playlistService.createPlaylists(playlists);
     }
 
 
-    @Path ("/updatePlaylist")
+    @Path("/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updatePlaylist(Playlists playlists){
-        playlistService.updatePlaylistName(playlists.getId(),playlists.getName());
-    }}
+    public Response updatePlaylist(@PathParam("id") Long id, String name) {
+        playlistService.updatePlaylistName(id, name);
+        return Response.status(Response.Status.OK).build();
+    }
+}

@@ -25,8 +25,8 @@ public class RecordLabelService {
         return recordLabelRepository.findRecordLabel(id);
     }
 
-    public void updateRecordLabelName(Long id, String name) {
-        recordLabelRepository.updateRecordLabelName(id, name);
+    public RecordLabels updateRecordLabelName(Long id, String name) {
+        return recordLabelRepository.updateRecordLabelName(id, name);
     }
 
     public RecordLabels deleteRecordLabel(Long id) {

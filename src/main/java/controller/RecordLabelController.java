@@ -6,45 +6,48 @@ import jakarta.ws.rs.core.Response;
 import service.RecordLabelService;
 
 import jakarta.ws.rs.core.MediaType;
+
 import java.util.List;
 
 @Path("/recordLabels")
-public class RecordLabelController{
+public class RecordLabelController {
     private final RecordLabelService recordLabelService = new RecordLabelService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<RecordLabels> readRecordLabels(){
+    public List<RecordLabels> readRecordLabels() {
         return recordLabelService.getAllRecordLabels();
     }
 
-    @Path ("/{getRecordLabel}")
+    @Path("/{getRecordLabel}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public RecordLabels getRecordLabel(@PathParam("getRecordLabel") Long id){
+    public RecordLabels getRecordLabel(@PathParam("getRecordLabel") Long id) {
         return recordLabelService.findRecordLabel(id);
     }
 
-    @Path ("/{id}")
+    @Path("/{id}")
     @DELETE
     public Response deleteRecordLabel(@PathParam("id") Long id) {
         recordLabelService.deleteRecordLabel(id);
-        return Response.status(Response.Status.OK).build();}
+        return Response.status(Response.Status.OK).build();
+    }
 
 
     @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public RecordLabels createRecordLabel(RecordLabels recordLabels){
+    public RecordLabels createRecordLabel(RecordLabels recordLabels) {
         return recordLabelService.createRecordLabel(recordLabels);
     }
 
 
-    @Path ("/updateRecordLabel")
+    @Path("/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateRecordLabel(RecordLabels recordLabels){
-        recordLabelService.updateRecordLabelName(recordLabels.getId(),recordLabels.getName());
+    public Response updateRecordLabel(@PathParam("id") Long id, String name) {
+        recordLabelService.updateRecordLabelName(id, name);
+        return Response.status(Response.Status.OK).build();
     }
 }

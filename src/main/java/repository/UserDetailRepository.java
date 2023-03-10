@@ -34,17 +34,6 @@ public class UserDetailRepository {
 
     }
 
-    public void updateUserDetailName(Long id, String name) {
-        entityManager.getEntityManagerFactory();
-
-        entityManager.getTransaction().begin();
-
-        UserDetails userDetails = entityManager.find(UserDetails.class, id);
-        userDetails.setName(name);
-        System.out.println(userDetails);
-        entityManager.getTransaction().commit();
-
-    }
 
     public UserDetails deleteUserDetail(Long id) {
         try {
@@ -64,7 +53,7 @@ public class UserDetailRepository {
         }
     }
 
-    public void updateUserDetailEmail(Long id, String mail) {
+    public UserDetails updateUserDetailEmail(Long id, String mail) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -73,6 +62,18 @@ public class UserDetailRepository {
         userDetails.setEmail(mail);
         System.out.println(userDetails);
         entityManager.getTransaction().commit();
+        return userDetails;
+    }
 
+    public UserDetails updateUserDetailName(Long id, String name) {
+        entityManager.getEntityManagerFactory();
+
+        entityManager.getTransaction().begin();
+
+        UserDetails userDetails = entityManager.find(UserDetails.class, id);
+        userDetails.setName(name);
+        System.out.println(userDetails);
+        entityManager.getTransaction().commit();
+        return userDetails;
     }
 }

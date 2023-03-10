@@ -25,12 +25,12 @@ public class UserDetailService {
         return userDetailRepository.deleteUserDetail(id);
     }
 
-    public void updateUserDetailEmail(Long id, String mail) {
-        userDetailRepository.updateUserDetailEmail(id, mail);
+    public UserDetails updateUserDetailEmail(Long id, String mail) {
+        return userDetailRepository.updateUserDetailEmail(id, mail);
     }
 
-    public void updateUserDetailName(Long id, String name) {
-        userDetailRepository.updateUserDetailName(id, name);
+    public UserDetails updateUserDetailName(Long id, String name) {
+        return userDetailRepository.updateUserDetailName(id, name);
     }
 }
 

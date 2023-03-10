@@ -61,7 +61,7 @@ public class ArtistRepository {
         }
     }
 
-    public void updateArtistName(Long id, String name) {
+    public Artists updateArtistName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -70,7 +70,7 @@ public class ArtistRepository {
         artists.setName(name);
         System.out.println(artists);
         entityManager.getTransaction().commit();
-
+        return artists;
     }
 
 }

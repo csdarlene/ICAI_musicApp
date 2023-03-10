@@ -43,7 +43,7 @@ public class SongRepository {
         return songs;
     }
 
-    public void updateSongName(Long id, String name) {
+    public Songs updateSongName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -52,7 +52,7 @@ public class SongRepository {
         songs.setName(name);
         System.out.println(songs);
         entityManager.getTransaction().commit();
-
+        return songs;
     }
 
     public Songs deleteSong(Long id) {

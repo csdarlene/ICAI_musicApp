@@ -6,33 +6,34 @@ import jakarta.ws.rs.core.Response;
 import service.SongService;
 
 import jakarta.ws.rs.core.MediaType;
+
 import java.util.List;
 
 @Path("songs")
-public class SongController{
+public class SongController {
     private final SongService songService = new SongService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Songs> readSongs(){
+    public List<Songs> readSongs() {
         return songService.getAllSongs();
     }
 
-    @Path ("/{getSong}")
+    @Path("/{getSong}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Songs getSong(@PathParam("getSong") Long id){
+    public Songs getSong(@PathParam("getSong") Long id) {
         return songService.findSong(id);
     }
 
-    @Path ("/SongArtist/{name}")
+    @Path("/SongArtist/{name}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSongArtist(@PathParam("name") String name){
-         return songService.getArtistSong(name).toString();
-   }
+    public String getSongArtist(@PathParam("name") String name) {
+        return songService.getArtistSong(name).toString();
+    }
 
-    @Path ("/{id}")
+    @Path("/{id}")
     @DELETE
     public Response deleteSong(@PathParam("id") Long id) {
         songService.deleteSong(id);
@@ -42,15 +43,17 @@ public class SongController{
     @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Songs createSong(Songs Songs){
+    public Songs createSong(Songs Songs) {
         return songService.createSongs(Songs);
     }
 
 
-    @Path ("/updateSong")
+    @Path("/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateSong(Songs songs){
-        songService.updateSongName(songs.getId(),songs.getName());
-    }}
+    public Response updateSong(@PathParam("id") Long id, String name) {
+        songService.updateSongName(id, name);
+        return Response.status(Response.Status.OK).build();
+    }
+}
