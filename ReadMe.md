@@ -1,8 +1,8 @@
 # Progress
 ## CRUD
-  create ✓ 
+  create ✓   
   read ✓  
-  update  
+  update ✓  
   delete ✓
 
 ## Web
@@ -16,7 +16,7 @@
   - edit account: username or password
 
 ## Requests
-- PUT
+- PUT ✓
 - GET ✓
 - POST ✓
 - DELETE ✓
