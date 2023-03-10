@@ -42,21 +42,21 @@ public class AlbumController {
     }
 
 
-    //update year
-    @Path("/{id}&{year}")
+    @Path("/{id}/year")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateYearAlbum(@PathParam("id") Long id, @PathParam("year") Integer year) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateYearAlbum(@PathParam("id") Long id, Integer year) {
         albumService.updateAlbumYear(id, year);
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/updateNameAlbum")
+    @Path("/{id}/name")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateNameAlbum(Albums albums) {
-        albumService.updateAlbumName(albums.getId(), albums.getName());
+    public Response updateNameAlbum(@PathParam("id") Long id, String name) {
+        albumService.updateAlbumName(id, name);
         return Response.status(Response.Status.OK).build();
     }
 
