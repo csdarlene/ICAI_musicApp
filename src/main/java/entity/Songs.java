@@ -21,10 +21,10 @@ public class Songs {
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "artist_songs",
-               joinColumns = {@JoinColumn(name = "song_id")},
-               inverseJoinColumns = {@JoinColumn(name = "artist_id")},
-               uniqueConstraints = {
-     @UniqueConstraint(columnNames = {"artist_id", "song_id"})})
+            joinColumns = {@JoinColumn(name = "song_id")},
+            inverseJoinColumns = {@JoinColumn(name = "artist_id")},
+            uniqueConstraints = {
+                    @UniqueConstraint(columnNames = {"artist_id", "song_id"})})
 
     private List<Artists> artistSet = new ArrayList<>();
 
@@ -37,19 +37,19 @@ public class Songs {
     public Songs() {
     }
 
-    public Songs( String name, Double time, Albums album_id ) {
+    public Songs(String name, Double time, Albums album_id) {
         this.name = name;
         this.time = time;
         this.album = album_id;
     }
 
-    public Songs( Long id, String name , Double time) {
+    public Songs(Long id, String name, Double time) {
         this.id = id;
         this.name = name;
         this.time = time;
     }
 
-    public Songs( String name, Double time ) {
+    public Songs(String name, Double time) {
         this.name = name;
         this.time = time;
     }
@@ -58,7 +58,7 @@ public class Songs {
         return album;
     }
 
-    public void setAlbumID( Albums album_id ) {
+    public void setAlbumID(Albums album_id) {
         this.album = album_id;
     }
 
@@ -74,7 +74,7 @@ public class Songs {
         return id;
     }
 
-    public void setId( Long id ) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,7 +82,7 @@ public class Songs {
         return name;
     }
 
-    public void setName( String name ) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -90,7 +90,7 @@ public class Songs {
         return time;
     }
 
-    public void setTime( Double time ) {
+    public void setTime(Double time) {
         this.time = time;
     }
 

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ICAI</title>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
@@ -28,7 +27,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous">
     </script>
-    <link rel="shortcut icon" href="pics/ICAI.png" type="image/x-icon">
+    <title>Edit Record Labels - ICAI</title>
     <style>
         /* CSS-stijlen voor de pagina */
         body {
@@ -41,48 +40,14 @@
             color: #ffffff;
             margin-top: 50px;
         }
-
-        .href {
-            position: center;
-            margin: auto;
-            width: 240px;
-            height: 120px;
-            padding: 6px 0 0 3px;
-            border: 2px solid #F984C3;
-            border-radius: 2px;
-            background: none;
-            font-size: 10px;
-            line-height: 54px;
-            color: #fff;
-            letter-spacing: .25em;
-            text-decoration: none;
-            font-weight: 50;
-            text-transform: uppercase;
-            vertical-align: middle;
-            text-align: end;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            -webkit-transition: background .4s, color .4s;
-            transition: background .4s, color .4s;
-            cursor: pointer;
-        }
-
-        .href:hover {
-            background: #F984C3;
-            color: #f3f9ff;
-        }
     </style>
-</head>
 
-<body>
-<div class="container text-center">
-    <h1 class="title">ICAI</h1>
+
+
+
+<body><div class="container text-center">
+    <h1 class="title">Record label</h1>
     <br>
-
-    <a href="Admin/Home.html" class="href">Admin</a>
-    <a href="Welcome_Home/FrontPage.html" class="href">ICAI</a>
-</div>
-
-</body>
-</html>
+    <button class="myButton" onclick="getRecordlabels()">
+        View all Record labels</button>
+    <ol></ol></div><script src="Recordlabels.js"></script></body></html>

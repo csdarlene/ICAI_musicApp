@@ -6,14 +6,16 @@ import jakarta.ws.rs.core.Response;
 import service.ArtistService;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.List;
+
 @Path("artists")
 public class ArtistController {
     private final ArtistService artistService = new ArtistService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String readArtists() {
-        return artistService.getAllArtists().toString();
+    public List<Artists> readArtists() {
+        return artistService.getAllArtists();
     }
 
     @Path("/{getArtist}")
