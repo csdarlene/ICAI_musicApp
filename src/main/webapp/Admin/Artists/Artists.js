@@ -14,11 +14,5 @@ async function getArtists() {
             </li>`;
         document.querySelector('ol').insertAdjacentHTML('beforeend', artistsList);
     })
-}
 
-function displayArtistNames() {
-    let artists = getArtists();
-    artists.array.forEach(element => {
-        console.log('Artist name: ' + element.name);
-    });
 }
