@@ -14,7 +14,7 @@ form {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #aa9ce8;
+    box-shadow: 0 0 10px rgba(249, 132, 195, 0.11);
     text-align: center;
 }
 
@@ -24,13 +24,13 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
     margin-bottom: 20px;
     border-radius: 5px;
     border: none;
-    box-shadow: 0 0 5px #aa9ce8;
+    box-shadow: 0 0 5px rgba(249, 132, 195, 0.48);
 }
 
 button[type="button"] {
     width: 100%;
     padding: 10px;
-    background-color: #aa9ce8;
+    background-color: rgb(249, 132, 195);
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -39,19 +39,19 @@ button[type="button"] {
 }
 
 a {
-    color: #aa9ce8;
+    color: rgba(249, 132, 195, 0.48);
     text-decoration: none;
     margin-top: 10px;
 }
 
 h4 {
-    color: #8270d9;
+    color: rgba(249, 132, 195, 0.69);
     text-decoration: none;
     margin-top: 10px;
 }
 
 h5 {
-    color: #5d5454;
+    color: rgba(249, 132, 195, 0.7);
 }
 
 h1 {
@@ -90,7 +90,7 @@ body {
     align-items: center;
     height: 0;
     min-height: 100vh;
-    background-color: #a396e3;
+    background-color: rgba(249, 132, 195, 0.48);
     /*background-image: url("../pics/backgroundWave.gif");*/
     background-position: center;
     background-size: cover;
@@ -98,7 +98,7 @@ body {
 }
 
 a {
-    color: #6557a9;
+    color: rgba(249, 132, 195, 0.7);
     font-family: "Roxborough CF", th, serif;
     text-align: center;
     font-size: 40px;
@@ -132,7 +132,7 @@ a {
     width: 180px;
     height: 60px;
     padding: 6px 0 0 3px;
-    border: 2px solid #6557a9;
+    border: 2px solid #f984c8;
     border-radius: 2px;
     background: none;
     font-size: 10px;
@@ -153,6 +153,6 @@ a {
 }
 
 .href:hover {
-    background: #6557a9;
+    background: rgba(249, 132, 195, 0.48);
     color: #f3f9ff;
 }
