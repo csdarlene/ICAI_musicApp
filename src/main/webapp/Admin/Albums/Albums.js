@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/ICAIapp_war_exploded/api/albums"
+const url = "http://localhost:8080/ICAIapp_war_exploded/api/albums/$"
 
 async function getAlbums() {
     const response = await fetch(url)
