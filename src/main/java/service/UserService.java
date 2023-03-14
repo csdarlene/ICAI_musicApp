@@ -43,4 +43,5 @@ public class UserService {
         return userRepository.getDetailsOfUsers(username);
     }
 
+    public Users signIn(String username, String password) { return userRepository.signIn(username,password);}
 }

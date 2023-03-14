@@ -110,5 +110,22 @@ public class UserRepository {
         }
     }
 
+    public Users signIn(String username, String password) {
+
+
+            entityManager.getEntityManagerFactory();
+
+            entityManager.getTransaction().begin();
+            TypedQuery<entity.Users> query = entityManager.createQuery("from Users u where u.username =?1 AND u.password =?2", entity.Users.class);
+            query.setParameter(1, username);
+            query.setParameter(2, password);
+
+            Users users = query.getSingleResult();
+            System.out.println(users);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            return users;
+    }
+
 }
 

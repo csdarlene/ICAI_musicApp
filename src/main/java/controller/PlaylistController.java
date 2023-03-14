@@ -27,11 +27,11 @@ public class PlaylistController {
     }
 
 
-    @Path("/UserPlaylist/{name}")
+    @Path("/UserPlaylist/{username}")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
-    public String getUserPlaylist(@PathParam("name") String name) {
-        return playlistService.getUserPlaylist(name).toString();
+    public List<Playlists> getUserPlaylist(@PathParam("username") String name) {
+        return playlistService.getUserPlaylist(name);
     }
 
     @Path("/{id}")

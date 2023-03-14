@@ -36,8 +36,8 @@ public class UserController {
     @Path("/DetailsOfUser/{name}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getDetailsOfUser(@PathParam("name") String name) {
-        return userService.getDetailsOfUsers(name).toString();
+    public List<Users> getDetailsOfUser(@PathParam("name") String name) {
+        return userService.getDetailsOfUsers(name);
     }
 
     @Path("/create")
@@ -64,5 +64,10 @@ public class UserController {
         userService.updateUserUsername(id, username);
         return Response.status(Response.Status.OK).build();
     }
-
+    @Path("/{username}/{password}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Boolean updateEmailUser(@PathParam("username")String username,@PathParam("password")String password) {
+        return userService.signIn(username, password) != null;
+    }
 }
