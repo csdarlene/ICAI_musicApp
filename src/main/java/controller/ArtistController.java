@@ -6,6 +6,7 @@ import jakarta.ws.rs.core.Response;
 import service.ArtistService;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("artists")
@@ -21,8 +22,10 @@ public class ArtistController {
     @Path("/{getArtist}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Artists getArtist(@PathParam("getArtist") Long id) {
-        return artistService.findArtist(id);
+    public List<Artists> getArtist(@PathParam("getArtist") Long id) {
+        List<Artists> artists=new ArrayList<>();
+        artists.add(artistService.findArtist(id));
+        return artists;
     }
 
     @Path("/{id}")

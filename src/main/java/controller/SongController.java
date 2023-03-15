@@ -7,6 +7,7 @@ import service.SongService;
 
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("songs")
@@ -22,8 +23,10 @@ public class SongController {
     @Path("/{getSong}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Songs getSong(@PathParam("getSong") Long id) {
-        return songService.findSong(id);
+    public List<Songs> getSong(@PathParam("getSong") Long id) {
+        List<Songs> songs = new ArrayList<>();
+        songs.add(songService.findSong(id));
+        return songs;
     }
 
     @Path("/SongArtist/{name}")
@@ -42,8 +45,8 @@ public class SongController {
 
     @Path("/create")
     @POST
-    public Response createSong(@FormParam("time")Double time,@FormParam("name") String name) {
-        songService.createSongs(new Songs(name,time));
+    public Response createSong(@FormParam("time") Double time, @FormParam("name") String name) {
+        songService.createSongs(new Songs(name, time));
         return Response.status(Response.Status.OK).build();
     }
 

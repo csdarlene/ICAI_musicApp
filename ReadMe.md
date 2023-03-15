@@ -25,6 +25,7 @@
 Opmerkingen (fix)
 - POST: 1-* & * - * 
 - View all 1-*
+- 
 
 ## To Do
 • Minimaal 1 html page welke dynamisch is m.b.v. javascript DOM manipulatie (op basis van welk hibernate mapping je gebruikt, gaat de cijfer omhoog)  

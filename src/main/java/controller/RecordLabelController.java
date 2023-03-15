@@ -7,6 +7,7 @@ import service.RecordLabelService;
 
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/recordLabels")
@@ -22,8 +23,10 @@ public class RecordLabelController {
     @Path("/{getRecordLabel}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public RecordLabels getRecordLabel(@PathParam("getRecordLabel") Long id) {
-        return recordLabelService.findRecordLabel(id);
+    public List<RecordLabels> getRecordLabel(@PathParam("getRecordLabel") Long id) {
+        List<RecordLabels> recordLabels= new ArrayList<>();
+        recordLabels.add(recordLabelService.findRecordLabel(id));
+        return recordLabels;
     }
 
     @Path("/{id}")

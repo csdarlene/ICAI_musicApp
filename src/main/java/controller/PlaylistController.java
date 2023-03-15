@@ -7,6 +7,7 @@ import service.PlaylistService;
 
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("playlists")
@@ -22,8 +23,10 @@ public class PlaylistController {
     @Path("/{getPlaylist}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Playlists getPlaylist(@PathParam("getPlaylist") Long id) {
-        return playlistService.findPlaylist(id);
+    public List<Playlists> getPlaylist(@PathParam("getPlaylist") Long id) {
+        List<Playlists> playlists= new ArrayList<>();
+        playlists.add(playlistService.findPlaylist(id));
+        return playlists;
     }
 
 

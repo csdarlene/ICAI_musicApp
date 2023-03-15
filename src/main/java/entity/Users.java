@@ -17,6 +17,7 @@ public class Users {
     @Column(nullable = false)
     private String password;
 
+
     @OneToOne
     @JoinColumn(name = "userDetails_id")
     private UserDetails userDetails;
@@ -73,6 +74,11 @@ public class Users {
 
     public void setUserDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
+    }
+
+
+    public UserDetails getUserDetails() {
+        return userDetails;
     }
 
     @Override

@@ -16,12 +16,14 @@
 
 <body>
 <div class="container text-center">
-    <h1 class="title">Record labels</h1>
-    <br>
+    <h1 class="title">Record labels</h1></div>
+<br>
+
+<div>
     <button class="myButton" onclick="getRecordlabels()">
         View all Record labels
     </button>
-    <ol></ol>
+
 </div>
 <br>
 <div>
@@ -30,6 +32,16 @@
         <label for="name"></label><input id="name" name="name" placeholder="name"/>
        <input type="submit"></form>
 </div>
+<br>
+
+<div>
+    <label> Get record label </label>
+    <label for="id"></label>
+    <input id="id"/>
+    <input type="submit" id="getRecordlabel" onclick="getRecordlabel()">
+</div>
+
+<ol></ol>
 <script src="Recordlabels.js"></script>
 </body>
 </html>

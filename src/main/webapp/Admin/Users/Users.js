@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/ICAIapp_war_exploded/api/users"
+const url = "http://localhost:8080/ICAIapp_war_exploded/api/users/"
 
 async function getUsers() {
     const response = await fetch(url)

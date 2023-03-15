@@ -16,12 +16,14 @@
 
 <body>
 <div class="container text-center">
-    <h1 class="title">Artists</h1>
-    <br>
-    <button class="myButton" onclick="getArtists()">
+    <h1 class="title">Artists</h1></div>
+<br>
+
+<div>
+    <button class="myButton" id="getAll" onclick="getArtists()">
         View all artists
     </button>
-    <ol></ol>
+
 </div>
 <br>
 <div>
@@ -30,38 +32,16 @@
         <label for="name"></label><input id="name" name="name" placeholder="name"/>
         <input type="submit"></form>
 </div>
+<br>
+
+<div>
+    <label> Get artist </label>
+    <label for="id"></label>
+    <input id="id"/>
+    <input type="submit" id="getArtist" onclick="getArtist()">
+</div>
+
+<ol></ol>
 <script src="Artists.js"></script>
 </body>
 </html>
-
-
-<!--<body>-->
-<!--<div class="container text-center">\-->
-<!--    &lt;!&ndash; Text color class used &ndash;&gt;-->
-<!--    <h1 class="title">Artists</h1>-->
-<!--    <br>-->
-<!--    <li>-->
-<!--        <button class="myButton" onclick="getArtists()">-->
-<!--            View all artists-->
-<!--        </button>-->
-<!--    </li>-->
-<!--    <ol></ol><br>-->
-<!--    <li>-->
-<!--        <ol>-->
-<!--            <div class="center">-->
-<!--                <form>-->
-<!--                    <label for="id"></label>-->
-<!--                    <input type="number" placeholder="id" id="id">-->
-<!--                    <button class="myButton" onclick="removeArtists()">-->
-<!--                        Delete artist-->
-<!--                    </button>-->
-
-<!--                </form>-->
-<!--            </div>-->
-<!--        </ol>-->
-<!--    </li>-->
-
-<!--</div>-->
-<!--<script src="Artists.js"></script>-->
-<!--</body>-->
-<!--</html>-->

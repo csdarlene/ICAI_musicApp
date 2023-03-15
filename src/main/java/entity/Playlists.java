@@ -1,7 +1,9 @@
 package entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +16,10 @@ public class Playlists {
     @Column(nullable = false)
     private String name;
 
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
+    private Date modified;
     @ManyToOne
     private Users user;
 
@@ -72,12 +78,21 @@ public class Playlists {
         this.name = name;
     }
 
+    public Date getModified() {
+        return modified;
+    }
+
+    public void setModified(Date modified) {
+        this.modified = modified;
+    }
+
     @Override
     public String toString() {
         return "Playlists: " +
                 "id=" + id +
                 ", name= " + name  +
                 ", user = " + user +
+                ",modified = " + modified+
                 "songs: "+getSongSet()+"\n";
     }
 

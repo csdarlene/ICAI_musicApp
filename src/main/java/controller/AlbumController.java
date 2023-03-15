@@ -7,6 +7,7 @@ import service.AlbumService;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,8 +24,11 @@ public class AlbumController {
     @Path("/{getAlbum}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Albums getAlbum(@PathParam("getAlbum") Long id) {
-        return albumService.findAlbum(id);
+    public List<Albums> getAlbum(@PathParam("getAlbum") Long id) {
+        List<Albums> albums = new ArrayList<>();
+         albums.add(albumService.findAlbum(id));
+        return albums;
+
     }
 
 
@@ -39,7 +43,7 @@ public class AlbumController {
     @Path("/create")
     @POST
     public Response createAlbum(@FormParam("name") String name, @FormParam("year") Integer year) {
-         albumService.createAlbums(new Albums(name, year));
+        albumService.createAlbums(new Albums(name, year));
         return Response.status(Response.Status.OK).build();
     }
 

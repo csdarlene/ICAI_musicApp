@@ -7,6 +7,7 @@ import service.UserService;
 
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("users")
@@ -22,8 +23,10 @@ public class UserController {
     @Path("/{getUser}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Users getUser(@PathParam("getUser") Long id) {
-        return userService.findUser(id);
+    public List<Users> getUser(@PathParam("getUser") Long id) {
+        List<Users> users =new ArrayList<>();
+        users.add(userService.findUser(id));
+        return users;
     }
 
     @Path("/{id}")

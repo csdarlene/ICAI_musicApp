@@ -17,11 +17,14 @@
 <body>
 <div class="container text-center">
   <h1 class="title">Songs</h1>
-  <br>
-  <button class="myButton" onclick="getSongs()">
+</div>
+<br>
+
+<div>
+  <button class="myButton" id="getAll" onclick="getSongs()">
     View all songs
   </button>
-  <ol></ol>
+
 </div>
 <div>
   <form action="../../api/songs/create" method="POST">
@@ -30,38 +33,16 @@
     <label for="time"></label><input id="time" name="time" placeholder="time" />
     <input type="submit"></form>
 </div>
+<br>
+
+<div>
+  <label> Get song </label>
+  <label for="id"></label>
+  <input id="id"/>
+  <input type="submit" id="getSong" onclick="getSong()">
+</div>
+
+<ol></ol>
 <script src="Songs.js"></script>
 </body>
 </html>
-
-
-<!--<body>-->
-<!--<div class="container text-center">\-->
-<!--    &lt;!&ndash; Text color class used &ndash;&gt;-->
-<!--    <h1 class="title">Songs</h1>-->
-<!--    <br>-->
-<!--    <li>-->
-<!--        <button class="myButton" onclick="getSongs()">-->
-<!--            View all Songs-->
-<!--        </button>-->
-<!--    </li>-->
-<!--    <ol></ol><br>-->
-<!--    <li>-->
-<!--        <ol>-->
-<!--            <div class="center">-->
-<!--                <form>-->
-<!--                    <label for="id"></label>-->
-<!--                    <input type="number" placeholder="id" id="id">-->
-<!--                    <button class="myButton" onclick="removeSongs()">-->
-<!--                        Delete artist-->
-<!--                    </button>-->
-
-<!--                </form>-->
-<!--            </div>-->
-<!--        </ol>-->
-<!--    </li>-->
-
-<!--</div>-->
-<!--<script src="Songs.js"></script>-->
-<!--</body>-->
-<!--</html>-->
