@@ -42,9 +42,9 @@ public class SongController {
 
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Songs createSong(Songs Songs) {
-        return songService.createSongs(Songs);
+    public Response createSong(@FormParam("time")Double time,@FormParam("name") String name) {
+        songService.createSongs(new Songs(name,time));
+        return Response.status(Response.Status.OK).build();
     }
 
 

@@ -7,7 +7,7 @@
   <meta name="description" content="Page for the admin">
   <meta name="author" content="Darlene G.">
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="10">
+  <meta http-equiv="refresh" content="20">
   <link rel="stylesheet" href="../../css/Home.css">
   <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
   <title>Edit UserDetails - ICAI</title>
@@ -22,6 +22,15 @@
     View all userdetails
   </button>
   <ol></ol>
+</div>
+<br>
+<div>
+  <form action="../../api/userDetails/create" method="POST">
+    <label> Create userdetails </label>
+    <label for="name"></label><input id="name" name="name" placeholder="name"/>
+    <label for="mail"></label><input id="mail" name="mail" placeholder="mail" />
+    <label for="birthday"></label><input id="birthday" name="birthday" placeholder="birthday"/>
+    <input type="submit"></form>
 </div>
 <script src="UserDetails.js"></script>
 </body>

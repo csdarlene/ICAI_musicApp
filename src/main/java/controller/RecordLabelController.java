@@ -36,9 +36,9 @@ public class RecordLabelController {
 
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public RecordLabels createRecordLabel(RecordLabels recordLabels) {
-        return recordLabelService.createRecordLabel(recordLabels);
+    public Response createRecordLabel(@FormParam("name")String name) {
+        recordLabelService.createRecordLabel(new RecordLabels(name));
+        return Response.status(Response.Status.OK).build();
     }
 
 

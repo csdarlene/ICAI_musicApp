@@ -7,7 +7,7 @@
   <meta name="description" content="Page for the admin">
   <meta name="author" content="Darlene G.">
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="10">
+  <meta http-equiv="refresh" content="20">
   <link rel="stylesheet" href="../../css/Home.css">
   <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
   <title>Edit Users - ICAI</title>
@@ -22,6 +22,14 @@
     View all users
   </button>
   <ol></ol>
+</div>
+<br>
+<div>
+  <form action="../../api/users/create" method="POST">
+    <label> Create users </label>
+    <label for="username"></label><input id="username" name="username" placeholder="username"/>
+    <label for="password"></label><input id="password" name="password" placeholder="password" type="password"/>
+    <input type="submit"></form>
 </div>
 <script src="Users.js"></script>
 </body>

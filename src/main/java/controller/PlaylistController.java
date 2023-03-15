@@ -44,9 +44,9 @@ public class PlaylistController {
 
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Playlists createPlaylist(Playlists playlists) {
-        return playlistService.createPlaylists(playlists);
+    public Response createPlaylist(@FormParam("name") String name) {
+         playlistService.createPlaylists(new Playlists(name));
+        return Response.status(Response.Status.OK).build();
     }
 
 

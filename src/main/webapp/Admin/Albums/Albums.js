@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/ICAIapp_war_exploded/api/albums/$"
+const url = "http://localhost:8080/ICAIapp_war_exploded/api/albums"
 
 async function getAlbums() {
     const response = await fetch(url)
@@ -10,7 +10,7 @@ async function getAlbums() {
     const data = await response.json();
     data.forEach(albums => {
         const albumsList =
-            `<li>${albums.name}, ${albums.year}
+            `<li>${albums.name}
             </li>`;
         document.querySelector('ol').insertAdjacentHTML('beforeend', albumsList);
     })

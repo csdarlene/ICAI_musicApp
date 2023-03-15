@@ -42,9 +42,9 @@ public class UserController {
 
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Users createUser(Users User) {
-        return userService.createUsers(User);
+    public Response createUser(@FormParam("username") String username, @FormParam("password") String password) {
+        userService.createUsers(new Users(username,password));
+        return Response.status(Response.Status.OK).build();
     }
 
     @Path("/{id}/password")

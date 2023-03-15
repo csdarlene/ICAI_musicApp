@@ -34,9 +34,9 @@ public class ArtistController {
 
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Artists createArtist(Artists artists) {
-        return artistService.createArtist(artists);
+    public Response createArtist(@FormParam("name") String name) {
+        artistService.createArtist(new Artists(name));
+        return Response.status(Response.Status.OK).build();
     }
 
     @Path("/{id}")

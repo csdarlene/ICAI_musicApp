@@ -38,9 +38,9 @@ public class AlbumController {
     //create
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Albums createAlbum(Albums albums) {
-        return albumService.createAlbums(albums);
+    public Response createAlbum(@FormParam("name") String name, @FormParam("year") Integer year) {
+         albumService.createAlbums(new Albums(name, year));
+        return Response.status(Response.Status.OK).build();
     }
 
 

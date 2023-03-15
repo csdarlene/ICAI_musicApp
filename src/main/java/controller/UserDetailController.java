@@ -1,5 +1,6 @@
 package controller;
 
+import application.InputChecker;
 import entity.UserDetails;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -28,11 +29,15 @@ public class UserDetailController {
 
     @Path("/create")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public UserDetails createUserDetail(UserDetails userDetail) {
-        return userDetailService.createUserDetails(userDetail);
+    public Response createUserDetail(@FormParam("name") String name,@FormParam("mail") String mail,@FormParam("birthday") String birthday) {
+//        InputChecker inputChecker = new InputChecker();
+//        if (inputChecker.BirthdayCheck(birthday).equals(birthday)) {
+//            if (inputChecker.MailCheck(mail).equals(mail)) {
+                userDetailService.createUserDetails(new UserDetails(name, birthday, mail));
+                return Response.status(Response.Status.OK).build();
+//            }
+//        }return Response.status(Response.Status.BAD_REQUEST).build();
     }
-
 
     @Path("/{id}/name")
     @PUT
