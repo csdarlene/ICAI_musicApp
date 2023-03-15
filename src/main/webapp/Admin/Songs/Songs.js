@@ -2,7 +2,7 @@ const url = "http://localhost:8080/ICAIapp_war_exploded/api/songs/"
 
 
 async function getSongs() {
-    for (let i = 1; i < 20; i++) {
+    for (let i = 1; i < 12; i++) {
         let getURL = url + i
         console.log(getURL)
         await loopSongs(getURL);
