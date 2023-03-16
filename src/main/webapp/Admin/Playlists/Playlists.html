@@ -7,8 +7,8 @@
   <meta name="description" content="Page for the admin">
   <meta name="author" content="Darlene G.">
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="10">
-  <link rel="stylesheet" href="../../css/Home.css">
+  <meta http-equiv="refresh" content="20">
+  <link rel="stylesheet" href="../../css/home.css">
   <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
   <title>Edit Playlists - ICAI</title>
 </head>
@@ -24,36 +24,35 @@
   <button class="myButton" id="getAll" onclick="getPlaylists()">
     View all playlists
   </button>
-</div>
+
 
 <br>
-<div>
+
   <form action="../../api/playlists/create" method="POST">
     <label> Create playlist </label>
     <label for="name"></label><input id="name" name="name" placeholder="name"/>
     <input type="submit"></form>
-</div>
-<br>
 
-<div>
+
+
   <label> Get playlist </label>
   <label for="id"></label>
   <input id="id"/>
   <input type="submit" id="getPlaylist" onclick="getPlaylist()">
-</div>
+
 <br>
 
-<div>
+
   <label> Delete playlist </label>
   <label for="idDel"></label>
   <input placeholder="id" id="idDel">
   <button class="myButton" id="deletePlaylist" onclick="deletePlaylist()">
     Delete playlist
   </button>
-</div>
+
 
 <br>
-<div>
+
   <label> Update name of playlist </label>
   <label for="idUpN"></label>
   <input placeholder="id" id="idUpN">

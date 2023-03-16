@@ -8,7 +8,7 @@
     <meta name="author" content="Darlene G.">
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="20">
-    <link rel="stylesheet" href="../../css/Home.css">
+    <link rel="stylesheet" href="../../css/home.css">
     <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
     <title>Edit Record Labels - ICAI</title>
 </head>
@@ -24,34 +24,30 @@
         View all Record labels
     </button>
 
-</div>
+
 <br>
-<div>
+
     <form action="../../api/recordLabels/create" method="POST">
         <label> Create record label </label>
         <label for="name"></label><input id="name" name="name" placeholder="name"/>
        <input type="submit"></form>
-</div>
-<br>
 
-<div>
     <label> Get record label </label>
     <label for="id"></label>
     <input id="id"/>
     <input type="submit" id="getRecordLabel" onclick="getRecordLabel()">
-</div><br>
+<br>
 
-<div>
     <label> Delete record label </label>
     <label for="idDel"></label>
     <input placeholder="id" id="idDel">
     <button class="myButton" id="deleteRecordLabel" onclick="deleteRecordLabel()">
         Delete record label
     </button>
-</div>
+
 
 <br>
-<div>
+
     <label> Update name of record label </label>
     <label for="idUpN"></label>
     <input placeholder="id" id="idUpN">

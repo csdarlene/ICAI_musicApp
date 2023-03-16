@@ -14,7 +14,7 @@ public class ServiceBehavioral {
         this.handler = handler;
     }
 
-    public boolean SongArtist( String artist, String song ) {
+    public String SongArtist( String artist, String song ) {
         if (handler.handle(artist, song)) {
             for (Artists a : artistService.getAllArtists()) {
                 if (a.getName().equals(artist)) {
@@ -27,15 +27,15 @@ public class ServiceBehavioral {
                             artistService.findArtist(idArtist).getSongSet().add(songService.findSong(idSong));
                             songService.findSong(idSong).getArtistSet().add(artistService.findArtist(idArtist));
                             songService.getArtistSong(song);
-                            System.out.println("Update was successful!");
-                            return true;
+                           return "Update was successful!";
+
                         }
                     }
                 }
             }
-            System.out.println("\nSong or artist doesn't appears in the database");
-            return false;
+            return "\nSong or artist doesn't appears in the database";
+
         }
-        return false;
+        return null;
     }
 }

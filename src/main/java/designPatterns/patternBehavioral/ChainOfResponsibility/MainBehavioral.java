@@ -19,7 +19,7 @@ public class MainBehavioral {
 
         linkSongToArtist(artist, song);
     }
-        public static void linkSongToArtist ( String artist, String song) {
+        public static String linkSongToArtist ( String artist, String song) {
 
         try {
 
@@ -29,14 +29,15 @@ public class MainBehavioral {
 
                 ServiceBehavioral service = new ServiceBehavioral(handler);
 
-                System.out.println(service.SongArtist(artist, song));
+                return service.SongArtist(artist, song);
 
 //        System.out.println(service.SongArtist("Post Malone","I Like You (A Happier Song)"));
 
         }catch(Exception e){
             e.printStackTrace();
         }
-    }
+            return null;
+        }
 }
 
 

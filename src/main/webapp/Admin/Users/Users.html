@@ -8,7 +8,7 @@
   <meta name="author" content="Darlene G.">
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="20">
-  <link rel="stylesheet" href="../../css/Home.css">
+  <link rel="stylesheet" href="../../css/home.css">
   <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
   <title>Edit Users - ICAI</title>
 </head>
@@ -24,37 +24,33 @@
   <button class="myButton" id="getAll" onclick="getUsers()">
     View all users
   </button>
-</div>
+
 <br>
 
-<div>
   <form action="../../api/users/create" method="POST">
     <label> Create users </label>
     <label for="username"></label><input id="username" name="username" placeholder="username"/>
     <label for="password"></label><input id="password" name="password" placeholder="password" type="password"/>
     <input type="submit"></form>
-</div>
-<br>
 
-<div>
   <label> Get user </label>
   <label for="id"></label>
   <input id="id"/>
   <input type="submit" id="getUser" onclick="getUser()">
-</div>
+
 <br>
 
-<div>
+
   <label> Delete user </label>
   <label for="idDel"></label>
   <input placeholder="id" id="idDel">
   <button class="myButton" id="deleteUser" onclick="deleteUser()">
     Delete user
   </button>
-</div>
+
 
 <br>
-<div>
+
   <label> Update username of user </label>
   <label for="idUpU"></label>
   <input placeholder="id" id="idUpU">
@@ -63,16 +59,16 @@
   <button class="myButton" id="updateUserU" onclick="updateUserU()">
     Update user
   </button>
-</div>
+
 
 
 <br>
-<div>
+
   <label> Update password of user </label>
   <label for="idUpP"></label>
   <input placeholder="id" id="idUpP">
   <label for="passwordUpP"></label>
-  <input placeholder="updated username" id="passwordUpP">
+  <input placeholder="updated password" id="passwordUpP">
   <button class="myButton" id="updateUserP" onclick="updateUserP()">
     Update user
   </button>

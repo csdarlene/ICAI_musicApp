@@ -4,8 +4,6 @@ let track_name = document.querySelector('.track-name');
 let track_artist = document.querySelector('.track-artist');
 
 let playpause_btn = document.querySelector('.playpause-track');
-let next_btn = document.querySelector('.next-track');
-let prev_btn = document.querySelector('.prev-track');
 
 let seek_slider = document.querySelector('.seek_slider');
 let volume_slider = document.querySelector('.volume_slider');
@@ -22,28 +20,46 @@ let updateTimer;
 
 const music_list = [
     {
-        img : '../pics/Phases.png',
+        img : '../../pics/Phases.png',
         name : '4U',
         artist : 'PRETTYMUCH',
-        music : '../../resources/Songs/4U.mp3'
+        music : '../../../resources/Songs/4U.mp3'
     },
     {
-        img : '../pics.Phases.png',
+        img : '../../pics/Phases.png',
         name : 'Temporary Heart',
         artist : 'PRETTYMUCH',
-        music : '../../resources/Songs/Temporary Heart.mp3'
+        music : '../../../resources/Songs/Temporary Heart.mp3'
     },
     {
-        img : '../pics/Phases.png',
+        img : '../../pics/Phases.png',
         name : 'Eyes Off You',
         artist : 'PRETTYMUCH',
-        music : '../../resources/Songs/Eyes Off You.mp3'
+        music : '../../../resources/Songs/Eyes Off You.mp3'
     },
     {
-        img : '../pics/Phases.png',
+        img : '../../pics/Phases.png',
         name : 'Phases',
         artist : 'PRETTYMUCH',
-        music : '../../resources/Songs/Phases.mp3'
+        music : '../../../resources/Songs/Phases.mp3'
+    },
+    {
+        img : '../../pics/backgroundWave.gif',
+        name : 'Broke Boys',
+        artist : 'Drake ft.21 Savage',
+        music : '../../../resources/Songs/Broke Boys.mp3'
+    }    ,
+    {
+        img : '../../pics/backgroundWave.gif',
+        name : 'Rich Flex',
+        artist : 'Drake ft.21 Savage',
+        music : '../../../resources/Songs/Rich Flex.mp3'
+    }    ,
+    {
+        img : '../../pics/backgroundWave.gif',
+        name : 'Feels',
+        artist : 'Calvin Harris',
+        music : '../../../resources/Songs/Feels.mp3'
     }
 ];
 
@@ -61,31 +77,13 @@ function loadTrack(track_index){
     track_artist.textContent = music_list[track_index].artist;
     now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
 
-    updateTimer = setInterval(setUpdate, 1000);
+    updateTimer = setInterval(setUpdate);
 
     curr_track.addEventListener('ended', nextTrack);
     random_bg_color();
 }
 
-function random_bg_color(){
-    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
-    let a;
 
-    function populate(a){
-        for(let i=0; i<6; i++){
-            let x = Math.round(Math.random() * 14);
-            let y = hex[x];
-            a += y;
-        }
-        return a;
-    }
-    let Color1 = populate('#');
-    let Color2 = populate('#');
-    var angle = 'to right';
-
-    let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
-    document.body.style.background = gradient;
-}
 function reset(){
     curr_time.textContent = "00:00";
     total_duration.textContent = "00:00";
@@ -103,8 +101,7 @@ function pauseRandom(){
     randomIcon.classList.remove('randomActive');
 }
 function repeatTrack(){
-    let current_index = track_index;
-    loadTrack(current_index);
+    loadTrack(track_index);
     playTrack();
 }
 function playpauseTrack(){
@@ -128,8 +125,7 @@ function nextTrack(){
     if(track_index < music_list.length - 1 && isRandom === false){
         track_index += 1;
     }else if(track_index < music_list.length - 1 && isRandom === true){
-        let random_index = Number.parseInt(Math.random() * music_list.length);
-        track_index = random_index;
+        track_index = Number.parseInt(Math.random() * music_list.length);
     }else{
         track_index = 0;
     }
@@ -146,8 +142,7 @@ function prevTrack(){
     playTrack();
 }
 function seekTo(){
-    let seekto = curr_track.duration * (seek_slider.value / 100);
-    curr_track.currentTime = seekto;
+    curr_track.currentTime = curr_track.duration * (seek_slider.value / 100);
 }
 function setVolume(){
     curr_track.volume = volume_slider.value / 100;

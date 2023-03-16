@@ -8,7 +8,7 @@
   <meta name="author" content="Darlene G.">
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="20">
-  <link rel="stylesheet" href="../../css/Home.css">
+  <link rel="stylesheet" href="../../css/home.css">
   <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
   <title>Edit Songs - ICAI</title>
 </head>
@@ -24,36 +24,33 @@
   <button class="myButton" id="getAll" onclick="getSongs()">
     View all songs
   </button>
+  <br>
 
-</div>
-<div>
   <form action="../../api/songs/create" method="POST">
     <label> Create songs </label>
     <label for="name"></label><input id="name" name="name" placeholder="name"/>
     <label for="time"></label><input id="time" name="time" placeholder="time" />
     <input type="submit"></form>
-</div>
-<br>
 
-<div>
+
+
   <label> Get song </label>
   <label for="id"></label>
   <input id="id"/>
   <input type="submit" id="getSong" onclick="getSong()">
-</div>
-<br>
 
-<div>
+
+  <br>
   <label> Delete song </label>
   <label for="idDel"></label>
   <input placeholder="id" id="idDel">
   <button class="myButton" id="deleteSong" onclick="deleteSong()">
     Delete song
   </button>
-</div>
+
 
 <br>
-<div>
+
   <label> Update name of song </label>
   <label for="idUpN"></label>
   <input placeholder="id" id="idUpN">

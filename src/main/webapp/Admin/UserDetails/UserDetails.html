@@ -8,7 +8,7 @@
   <meta name="author" content="Darlene G.">
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="20">
-  <link rel="stylesheet" href="../../css/Home.css">
+  <link rel="stylesheet" href="../../css/home.css">
   <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
   <title>Edit UserDetails - ICAI</title>
 </head>
@@ -23,29 +23,26 @@
     View all user details
   </button>
 
-</div>
+
 <br>
-<div>
+
   <form action="../../api/userDetails/create" method="POST">
     <label> Create userdetails </label>
     <label for="name"></label><input id="name" name="name" placeholder="name"/>
     <label for="mail"></label><input id="mail" name="mail" placeholder="mail" />
     <label for="birthday"></label><input id="birthday" name="birthday" placeholder="birthday"/>
     <input type="submit"></form>
-</div>
-<br>
 
-<div>
   <label> Delete user detail </label>
   <label for="idDel"></label>
   <input placeholder="id" id="idDel">
   <button class="myButton" id="deleteUserDetail" onclick="deleteUserDetail()">
     Delete user detail
   </button>
-</div>
+
 <br>
 
-<div>
+
   <label> Update name of user </label>
   <label for="idUpN"></label>
   <input placeholder="id" id="idUpN">
@@ -54,11 +51,10 @@
   <button class="myButton" id="updateUserDetailN" onclick="updateUserDetailN()">
     Update user detail
   </button>
-</div>
+
 
 <br>
 
-<div>
   <label> Update email of user </label>
   <label for="idUpE"></label>
   <input placeholder="id" id="idUpE">

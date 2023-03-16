@@ -1,6 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to right,#aa9ce8, #FFFAFA);
+  background: linear-gradient(to right, rgba(249, 132, 195, 0.43), #FFFAFA);
   font-weight: bold;
 }
 
@@ -16,7 +16,7 @@ body {
     padding: 30px;
     border-radius: 20px;
     background-color: #ddd;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
 
   .details {
@@ -33,10 +33,9 @@ body {
   border:2px solid 	#FFFAFA;
   background-size: cover;
   background-position: center;
-  border-radius: 50%;
-  -moz-box-shadow: 0px 6px 5px black;
-  -webkit-box-shadow: 0px 6px 5px black;
-  box-shadow: 0px 6px 5px black;
+    -moz-box-shadow: 0 6px 5px black;
+  -webkit-box-shadow: 0 6px 5px black;
+  box-shadow: 0 6px 5px black;
   -moz-border-radius:190px;
   -webkit-border-radius:190px;
   border-radius:190px;
@@ -94,7 +93,7 @@ body {
   -moz-appearance: none;
   appearance: none;
   height: 5px;
-  background: #aa9ce8;
+  background: #f984c3;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -107,7 +106,7 @@ body {
   width: 15px;
   height: 15px;
   background: white;
-  border: 3px solid #aa9ce8;
+  border: 3px solid rgba(249, 132, 195, 0.53);
   cursor: grab;
   border-radius: 100%;
 }
@@ -174,11 +173,11 @@ body {
   @keyframes animate {
   50% {
   height: 20%;
-  background: #aa9ce8;
+  background: rgba(249, 132, 195, 0.48);
 }
 
   100% {
-  background: #aa9ce8;
+  background: rgba(249, 132, 195, 0.22);
   height: 100%;
 }
 }

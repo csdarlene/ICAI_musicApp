@@ -7,8 +7,8 @@
     <meta name="description" content="Page for the admin">
     <meta name="author" content="Darlene G.">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="10">
-    <link rel="stylesheet" href="../../css/Home.css">
+    <meta http-equiv="refresh" content="20">
+    <link rel="stylesheet" href="../../css/home.css">
     <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
     <title>Edit Artists - ICAI</title>
 </head>
@@ -24,35 +24,33 @@
         View all artists
     </button>
 
-</div>
 <br>
-<div>
+
     <form action="../../api/artists/create" method="POST">
         <label> Create artists </label>
         <label for="name"></label><input id="name" name="name" placeholder="name"/>
         <input type="submit"></form>
-</div>
-<br>
 
-<div>
+
+
     <label> Get artist </label>
     <label for="id"></label>
     <input id="id"/>
     <input type="submit" id="getArtist" onclick="getArtist()">
-</div>
+
 <br>
 
-<div>
+
     <label> Delete artist </label>
     <label for="idDel"></label>
     <input placeholder="id" id="idDel">
     <button class="myButton" id="deleteArtist" onclick="deleteArtist()">
         Delete artist
     </button>
-</div>
+
 
 <br>
-<div>
+
     <label> Update name of artist </label>
     <label for="idUpN"></label>
     <input placeholder="id" id="idUpN">
