@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width= device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="Page for the admin">
+    <meta name="author" content="Darlene G.">
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="20">
+    <link rel="stylesheet" href="../../css/home.css">
+    <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
+    <title>Edit Albums - ICAI</title>
+</head>
+
+
+<body>
+
+<div class="container text-center">
+    <h1 class="title">Albums</h1>
+</div>
+<br>
+
+<div>
+    <button class="myButton" id="getAll" onclick="getAlbums()">
+        View all albums
+    </button>
+
+
+    <br>
+
+    <form action="../../api/albums/create" method="POST">
+        <label> Create album </label>
+        <label for="name"></label><input id="name" name="name" placeholder="name"/>
+        <label for="year"></label><input id="year" name="year" placeholder="year"/>
+        <input type="submit"></form>
+
+
+    <label> Get album </label>
+    <label for="id"></label>
+    <input id="id" placeholder="id"/>
+    <input type="submit" id="getAlbum" onclick="getAlbum()">
+
+    <br>
+
+
+    <label> Delete album </label>
+    <label for="idDel"></label>
+    <input placeholder="id" id="idDel">
+    <button class="myButton" id="deleteAlbum" onclick="deleteAlbum()">
+        Delete album
+    </button>
+
+    <br>
+
+    <label> Update year of album </label>
+    <label for="idUpY"></label>
+    <input placeholder="id" id="idUpY">
+    <label for="yearUpY"></label>
+    <input placeholder="updated year" id="yearUpY">
+    <button class="myButton" id="updateAlbumY" onclick="updateAlbumY()">
+        Update album
+    </button>
+
+
+    <br>
+
+    <label> Update name of album </label>
+    <label for="idUpN"></label>
+    <input placeholder="id" id="idUpN">
+    <label for="nameUpN"></label>
+    <input placeholder="updated name" id="nameUpN">
+    <button class="myButton" id="updateAlbumN" onclick="updateAlbumN()">
+        Update album
+    </button>
+</div>
+
+<ol></ol>
+<script src="Albums.js"></script>
+</body>
+</html>

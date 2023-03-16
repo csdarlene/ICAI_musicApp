@@ -23,10 +23,10 @@ public class DesignPatternController {
     }
 
 
-    @Path("/creational2")
+    @Path("/creational")
     @GET
     @Produces("text/plain")
-    public String creational2(){
+    public String creational(){
         return MainCreational2.MainCreational();   }
 
  }

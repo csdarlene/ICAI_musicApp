@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Design Patterns- ICAI</title>
+    <meta name="viewport"
+          content="width= device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="Home page for the admin">
+    <meta name="author" content="Darlene G.">
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/home.css">
+
 </head>
 <body>
+
+<h1 data-svg style="text-align:center;">Design Patterns</h1>
+
+
+            <div class="center">
+                <form action="../../api/design/behavioral" method="GET">
+                    <label> Behavioral </label>
+                    <label for="artist"></label><input id="artist" name="artist" placeholder="artist"/>
+                    <label for="song"></label><input id="song" name="song" placeholder="song"/>
+                    <input type="submit">
+                </form>
+
+               <br> <form action="../../api/design/creational" method="GET">
+                <button class="myButton" id="Creational" onclick="getYear()"> Creational</button>
+
+            </form>
+
+               <br>
+
+                <button class="myButton" id="Structural" onclick="Structural()">Structural</button>
+                <br>
+                <ol></ol>
+            </div>
+
+
+<script src="DesignP.js"></script>
 
 </body>
 </html>
