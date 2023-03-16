@@ -69,3 +69,29 @@ async function deletePlaylist() {
         .catch(error => {
             console.error('Error deleting record:', error);
         });}
+
+async function updatePlaylist() {
+    let id = document.getElementById("idUpN").value;
+    let name = document.getElementById("nameUpN").value;
+    console.log(id)
+    let getURL = url  + id
+    console.log(getURL)
+
+
+    fetch(getURL, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: (name),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+        })
+        .catch(error => {
+            console.error('Error updating record:', error);
+        });
+}

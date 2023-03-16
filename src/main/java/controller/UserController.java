@@ -50,7 +50,7 @@ public class UserController {
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/{id}/password")
+    @Path("/password/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -59,7 +59,7 @@ public class UserController {
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/{id}/username")
+    @Path("/username/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

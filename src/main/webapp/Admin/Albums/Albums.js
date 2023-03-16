@@ -68,5 +68,58 @@ async function deleteAlbum() {
         })
         .catch(error => {
             console.error('Error deleting record:', error);
-        });}
+        });
+}
+
+async function updateAlbumY() {
+    let id = document.getElementById("idUpY").value;
+    let year = document.getElementById("yearUpY").value;
+    console.log(id)
+    let getURL = url + "year/" + id
+    console.log(getURL)
+
+
+    fetch(getURL, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(year),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+        })
+        .catch(error => {
+            console.error('Error updating record:', error);
+        });
+}
+
+async function updateAlbumN() {
+    let id = document.getElementById("idUpN").value;
+    let name = document.getElementById("nameUpN").value;
+    console.log(id)
+    let getURL = url + "name/" + id
+    console.log(getURL)
+
+
+    fetch(getURL, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: (name),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+        })
+        .catch(error => {
+            console.error('Error updating record:', error);
+        });
+}
 

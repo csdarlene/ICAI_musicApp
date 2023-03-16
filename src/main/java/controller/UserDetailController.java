@@ -39,7 +39,7 @@ public class UserDetailController {
 //        }return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
-    @Path("/{id}/name")
+    @Path("/name/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -48,7 +48,7 @@ public class UserDetailController {
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/{id}/email")
+    @Path("/email/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

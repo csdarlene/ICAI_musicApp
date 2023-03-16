@@ -48,7 +48,7 @@ public class AlbumController {
     }
 
 
-    @Path("/{id}/year")
+    @Path("/year/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -57,7 +57,7 @@ public class AlbumController {
         return Response.status(Response.Status.OK).build();
     }
 
-    @Path("/{id}/name")
+    @Path("/name/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
