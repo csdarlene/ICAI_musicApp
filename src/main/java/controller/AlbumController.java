@@ -35,8 +35,8 @@ public class AlbumController {
     @Path("/{id}")
     @DELETE
     public Response deleteAlbum(@PathParam("id") Long id) {
-        albumService.deleteAlbum(id);
-        return Response.status(Response.Status.OK).build();
+          albumService.deleteAlbum(id);
+        return  Response.status(Response.Status.OK).build();
     }
 
     //create

@@ -35,13 +35,15 @@ public class AlbumRepository {
 
 
     public Albums deleteAlbum(Long id) {
-        entityManager.getEntityManagerFactory();
 
         try {
+            entityManager.getEntityManagerFactory();
+
             entityManager.getTransaction().begin();
             Albums albums = entityManager.find(Albums.class, id);
             System.out.println(albums.getName() + " has been removed \n");
             entityManager.remove(albums);
+
             entityManager.getTransaction().commit();
             return albums;
         } catch (Exception e) {
