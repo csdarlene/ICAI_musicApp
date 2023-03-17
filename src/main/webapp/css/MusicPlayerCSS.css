@@ -1,6 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to right, rgba(249, 132, 195, 0.43), #FFFAFA);
+  background: linear-gradient(to right, rgba(249, 132, 195, 0.54), #FFFAFA);
   font-weight: bold;
 }
 
@@ -15,7 +15,7 @@ body {
     border: 1px solid transparent;
     padding: 30px;
     border-radius: 20px;
-    background-color: #ddd;
+    background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
 

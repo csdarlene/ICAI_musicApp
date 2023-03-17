@@ -1,68 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport"
-        content="width= device-width, initial-scale=1.0">
-  <meta name="keywords" content="">
-  <meta name="description" content="Page for the admin">
-  <meta name="author" content="Darlene G.">
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="20">
-  <link rel="stylesheet" href="../../css/home.css">
-  <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
-  <title>Edit UserDetails - ICAI</title>
+    <meta name="viewport"
+          content="width= device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="Page for the admin">
+    <meta name="author" content="Darlene G.">
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="20">
+    <link rel="stylesheet" href="../../css/edit.css">
+    <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
+    <title>Edit UserDetails - ICAI</title>
 </head>
 
 <body>
 <div class="container text-center">
-  <h1 class="title">UserDetails</h1></div>
-  <br>
-
-  <div>
-  <button class="myButton" onclick="getUserDetails()">
-    View all user details
-  </button>
-
-
+    <h1 class="title">UserDetails</h1></div>
 <br>
 
-  <form action="../../api/userDetails/create" method="POST">
-    <label> Create userdetails </label>
-    <label for="name"></label><input id="name" name="name" placeholder="name"/>
-    <label for="mail"></label><input id="mail" name="mail" placeholder="mail" />
-    <label for="birthday"></label><input id="birthday" name="birthday" placeholder="birthday"/>
-    <input type="submit"></form>
+<div>
+      <form action="../../api/userDetails/create" method="POST">
+        <label> Create userdetails </label><br>
+        <label for="name"></label><input type="text" id="name" name="name" placeholder="name"/>
+        <label for="mail"></label><input type="text" id="mail" name="mail" placeholder="mail"/>
+        <label for="birthday"></label><input type="text" id="birthday" name="birthday" placeholder="birthday"/>
+        <input type="submit"></form>
 
-  <label> Delete user detail </label>
-  <label for="idDel"></label>
-  <input placeholder="id" id="idDel">
-  <button class="myButton" id="deleteUserDetail" onclick="deleteUserDetail()">
-    Delete user detail
-  </button>
+    <label> Update name of user </label><br>
+    <label for="idUpN"></label>
+    <input type="text" placeholder="id" id="idUpN">
+    <label for="nameUpN"></label>
+    <input type="text" placeholder="updated name" id="nameUpN">
+    <button class="myButton" id="updateUserDetailN" onclick="updateUserDetailN()">
+        Update user detail
+    </button>
 
-<br>
+    <br>
+    <label> Update email of user </label><br>
+    <label for="idUpE"></label>
+    <input type="text" placeholder="id" id="idUpE">
+    <label for="emailUpE"></label>
+    <input type="text" placeholder="updated email" id="emailUpE">
+    <button class="myButton" id="updateUserDetailE" onclick="updateUserDetailE()">
+        Update user detail
+    </button>
 
+    <br>
+    <label> Delete user detail </label><br>
+    <label for="idDel"></label>
+    <input type="text" placeholder="id" id="idDel">
+    <button class="myButton" id="deleteUserDetail" onclick="deleteUserDetail()">
+        Delete user detail
+    </button>
 
-  <label> Update name of user </label>
-  <label for="idUpN"></label>
-  <input placeholder="id" id="idUpN">
-  <label for="nameUpN"></label>
-  <input placeholder="updated name" id="nameUpN">
-  <button class="myButton" id="updateUserDetailN" onclick="updateUserDetailN()">
-    Update user detail
-  </button>
-
-
-<br>
-
-  <label> Update email of user </label>
-  <label for="idUpE"></label>
-  <input placeholder="id" id="idUpE">
-  <label for="emailUpE"></label>
-  <input placeholder="updated email" id="emailUpE">
-  <button class="myButton" id="updateUserDetailE" onclick="updateUserDetailE()">
-    Update user detail
-  </button>
+    <br>
+    <button class="myButton" onclick="getUserDetails()">
+        View all user details
+    </button>
 </div>
 
 <ol></ol>

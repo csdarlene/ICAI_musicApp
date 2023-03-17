@@ -20,6 +20,12 @@ let updateTimer;
 
 const music_list = [
     {
+        img : '../../pics/backgroundWave.gif',
+        name : 'Rich Flex',
+        artist : 'Drake ft.21 Savage',
+        music : '../../../resources/Songs/Rich Flex.mp3'
+    }    ,
+    {
         img : '../../pics/Phases.png',
         name : '4U',
         artist : 'PRETTYMUCH',
@@ -49,12 +55,7 @@ const music_list = [
         artist : 'Drake ft.21 Savage',
         music : '../../../resources/Songs/Broke Boys.mp3'
     }    ,
-    {
-        img : '../../pics/backgroundWave.gif',
-        name : 'Rich Flex',
-        artist : 'Drake ft.21 Savage',
-        music : '../../../resources/Songs/Rich Flex.mp3'
-    }    ,
+
     {
         img : '../../pics/backgroundWave.gif',
         name : 'Feels',

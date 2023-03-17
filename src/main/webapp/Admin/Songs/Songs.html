@@ -1,64 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport"
-        content="width= device-width, initial-scale=1.0">
-  <meta name="keywords" content="">
-  <meta name="description" content="Page for the admin">
-  <meta name="author" content="Darlene G.">
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="20">
-  <link rel="stylesheet" href="../../css/home.css">
-  <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
-  <title>Edit Songs - ICAI</title>
+    <meta name="viewport"
+          content="width= device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="Page for the admin">
+    <meta name="author" content="Darlene G.">
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="20">
+    <link rel="stylesheet" href="../../css/edit.css">
+    <link rel="shortcut icon" href="../../pics/ICAI.png" type="image/x-icon">
+    <title>Edit Songs - ICAI</title>
 </head>
 
 
 <body>
 <div class="container text-center">
-  <h1 class="title">Songs</h1>
+    <h1 class="title">Songs</h1>
 </div>
 <br>
 
 <div>
-  <button class="myButton" id="getAll" onclick="getSongs()">
+    <form action="../../api/songs/create" method="POST">
+        <label> Create songs </label><br>
+        <label for="name"></label><input type="text" id="name" name="name" placeholder="name"/>
+        <label for="time"></label><input type="text" id="time" name="time" placeholder="time"/>
+        <input type="submit"></form>
+
+
+    <label> Get song </label><br>
+    <label for="id"></label>
+    <input type="text" placeholder="id" id="id"/>
+    <input type="submit" id="getSong" onclick="getSong()">
+
+    <br>
+
+    <label> Update name of song </label>
+    <label for="idUpN"></label><br>
+    <input type="text" placeholder="id" id="idUpN">
+    <label for="nameUpN"></label>
+    <input type="text" placeholder="updated name" id="nameUpN">
+    <button class="myButton" id="updateSong" onclick="updateSong()">
+        Update song
+    </button>
+
+    <br>
+    <label> Delete song </label><br>
+    <label for="idDel"></label>
+    <input type="text" placeholder="id" id="idDel">
+    <button class="myButton" id="deleteSong" onclick="deleteSong()">
+        Delete song
+    </button>
+
+    <br>
+    <button class="myButton" id="getAll" onclick="getSongs()">
     View all songs
-  </button>
-  <br>
-
-  <form action="../../api/songs/create" method="POST">
-    <label> Create songs </label>
-    <label for="name"></label><input id="name" name="name" placeholder="name"/>
-    <label for="time"></label><input id="time" name="time" placeholder="time" />
-    <input type="submit"></form>
-
-
-
-  <label> Get song </label>
-  <label for="id"></label>
-  <input id="id"/>
-  <input type="submit" id="getSong" onclick="getSong()">
-
-
-  <br>
-  <label> Delete song </label>
-  <label for="idDel"></label>
-  <input placeholder="id" id="idDel">
-  <button class="myButton" id="deleteSong" onclick="deleteSong()">
-    Delete song
-  </button>
-
-
-<br>
-
-  <label> Update name of song </label>
-  <label for="idUpN"></label>
-  <input placeholder="id" id="idUpN">
-  <label for="nameUpN"></label>
-  <input placeholder="updated name" id="nameUpN">
-  <button class="myButton" id="updateSong" onclick="updateSong()">
-    Update song
-  </button>
+</button>
 </div>
 
 <ol></ol>

@@ -1,0 +1,60 @@
+.container {
+    background-color: rgba(249, 132, 195, 0.48);
+}
+
+.title {
+    color: white;
+}
+
+.myButton,
+input[type="submit"] {
+    background-color: #f984c8;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.myButton:hover {
+    background-color: black;
+    color: white;
+}
+body {
+    font-family: "Roxborough CF", th, serif;
+    /*text-align: center;*/
+    background-color: rgba(249, 132, 195, 0.21);
+}
+h1 {
+    position: -webkit-sticky;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+}
+input[type="text"],input[type="password"]{
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(249, 132, 195, 0.48);
+}
+label {
+    font-weight: bold;
+}
+.center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 800px;
+    height: 50%;
+}

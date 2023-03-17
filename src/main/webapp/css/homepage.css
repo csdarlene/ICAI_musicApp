@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #ffffff;
+    background-color: rgba(249, 132, 195, 0.06);
     color: #f984c8;
     display: flex;
     align-items: center;

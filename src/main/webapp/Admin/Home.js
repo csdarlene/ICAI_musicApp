@@ -35,6 +35,7 @@ async function getUserPlaylist() {
         );
     }
     const data = await response.json();
+    console.log(data)
     data.forEach(playlist => {
         const playlistList =
             `<li>${playlist.name}, ${playlist.modified}
@@ -56,6 +57,7 @@ async function getYear() {
         );
     }
     const data = await response.json();
+    console.log(data)
     data.forEach(album => {
         if (album.year === year) {
             // const albumList = { name: album.name, year: album.year };
@@ -77,6 +79,7 @@ async function GetPlaylistSong() {
         throw new Error(`HTTP ERROR! STATUS: ${response.status}`);
     }
     const data = await response.json();
+    console.log(data)
     const albumList = [];
     data.forEach(playlist => {
         albumList.push({id: playlist.id, name: playlist.name});

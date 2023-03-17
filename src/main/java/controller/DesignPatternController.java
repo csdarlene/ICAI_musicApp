@@ -2,23 +2,16 @@ package controller;
 
 import designPatterns.patternBehavioral.ChainOfResponsibility.MainBehavioral;
 import designPatterns.patternCreational.Prototype2.MainCreational2;
-import designPatterns.patternStructural.Composite.MainComposite;
-
-import designPatterns.patternStructural.Proxy.MainProxy;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
-
-
-@Path("design")
+@Path("/design")
 public class DesignPatternController {
-
-    static MainComposite mainComposite= new MainComposite();
-    static MainProxy mainProxy= new MainProxy();
 
     @Path("/behavioral")
     @GET
-    @Produces("text/plain")
-    public String behavioral(@FormParam("artist") String artist, @FormParam("song") String song){
+    @Produces(MediaType.TEXT_PLAIN)
+    public String behavioral(@QueryParam("artist") String artist, @QueryParam("song") String song){
         return MainBehavioral.linkSongToArtist(artist,song);
     }
 
@@ -28,6 +21,5 @@ public class DesignPatternController {
     @Produces("text/plain")
     public String creational(){
         return MainCreational2.MainCreational();   }
-
  }
 

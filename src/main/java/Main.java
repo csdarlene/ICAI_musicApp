@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Application application= new Application();
 //        application.dummyData();
-        application.begin();
+//        application.begin();
 //        application.playMusic();
 
     }
