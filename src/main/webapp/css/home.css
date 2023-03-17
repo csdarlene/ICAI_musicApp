@@ -87,6 +87,33 @@ ol {
     width: 800px;
     height: 50%;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+/* Stijl de rijen */
+tr {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid rgba(85, 85, 85, 0.52);
+}
+
+/* Stijl de cellen */
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Stijl de kop */
+th {
+    background-color: rgba(249, 132, 195, 0.54);
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
 .margin {
     position: center;
     margin: 0;

@@ -2,6 +2,7 @@ package service;
 
 import configuration.JPAConfiguration;
 import entity.Artists;
+import entity.Songs;
 import repository.ArtistRepository;
 
 import java.util.List;
@@ -33,6 +34,10 @@ public class ArtistService {
         return artistRepository.deleteArtist(id);
     }
 
+    public List<Artists> getArtistAlbum(String artist) {
+        return artistRepository.getArtistAlbum(artist);
+
+    }
 
 }
 

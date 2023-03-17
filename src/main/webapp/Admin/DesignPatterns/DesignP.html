@@ -19,26 +19,33 @@
 <h1 data-svg style="text-align:center;">Design Patterns</h1>
 
 
-            <div class="center">
-                <form action="../../api/design/behavioral" method="GET">
-                    <button class="myButton" >Behavioral</button> <br>
-                    <label for="artist"></label><input type="text" id="artist" name="artist" placeholder="artist"/>
-                    <label for="song"></label><input type="text" id="song" name="song" placeholder="song"/>
-                    <input type="submit">
-                </form>
+<div >
+    <form action="../../api/design/behavioral" method="GET">
+        <button class="myButton">Behavioral</button>
+        <br>
+        <label for="artist"></label><input type="text" id="artist" name="artist" placeholder="artist"/>
+        <label for="song"></label><input type="text" id="song" name="song" placeholder="song"/>
+        <input type="submit">
+    </form>
 
 
-               <br> <form action="../../api/design/creational" method="GET">
-                <button class="myButton" id="Creational" onclick="getYear()"> Creational</button>
-            </form>
+    <br>
+    <form action="../../api/design/creational" method="GET">
+        <button class="myButton" id="Creational" onclick="getYear()"> Creational</button>
+    </form>
+</div>
+    <br>
+    <h1>Many To Many Mapping</h1>
 
-               <br>
-                <button class="myButton" id="Structural" onclick="Structural()">Structural</button>
-                <br>
-            </div>
+    <form action="../../api/design/behavioral2" method="GET">
+        <h4>Playlist Songs</h4>
+        <br>
+        <label for="playlist"></label><input type="text" id="playlist" name="playlist" placeholder="playlist"/>
+        <label for="songs"></label><input type="text" id="songs" name="songs" placeholder="songs"/>
+        <input type="submit">
+    </form>
 
 
-<script src="DesignP.js"></script>
 
 </body>
 </html>

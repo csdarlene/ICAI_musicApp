@@ -2,6 +2,7 @@ package service;
 
 import configuration.JPAConfiguration;
 import entity.Playlists;
+import entity.Songs;
 import repository.PlaylistRepository;
 
 import java.util.List;
@@ -36,5 +37,10 @@ public class PlaylistService {
     public Playlists findPlaylist(Long id) {
 
         return playlistRepository.findPlaylist(id);
+    }
+
+    public List<Playlists> getPlaylistSong(String playlist) {
+        return playlistRepository.getPlaylistSong(playlist);
+
     }
 }

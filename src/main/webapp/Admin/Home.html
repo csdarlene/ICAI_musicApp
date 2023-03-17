@@ -36,21 +36,46 @@
     <div class="midden">
         <div class="margin">
 
-            <h1> <a href= "DesignPatterns/DesignP.html">Design Patterns</a></h1><br>
+            <h1><a href="DesignPatterns/DesignP.html">Design Patterns</a></h1><br>
+        </div>  <br>
+        <br>
 
-        </div>
-    <br>
-        <div class="top">
             <h1>Reports</h1><br>
             <button class="myButton" id="getArtistSong" onclick="getArtistSong()"> Artist of song</button>
             <button class="myButton" id="getUserPlaylist" onclick="getUserPlaylist()"> User's playlist</button>
-            <button class="myButton" id="getYear" onclick="getYear()"> Albums release year</button>
             <button class="myButton" id="GetPlaylistSong" onclick="GetPlaylistSong()">Playlist's songs
             </button>
-            <table></table>
+            <table id="playlistTable">
+                <thead>
+                <tr>
+                    <th>Playlist Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <table id="songTable">
+                <thead>
+                <tr>
+                    <th>Song Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <table id="artistTable">
+                <thead>
+                <tr>
+                    <th>Artist Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <ol></ol>
         </div>
 
-    </div>
+
 </main>
 <script src="Home.js"></script>
 

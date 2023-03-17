@@ -30,13 +30,15 @@ public class PlaylistController {
     }
 
 
-    @Path("/UserPlaylist/{username}")
-    @GET
+    @Path("/userPlaylist")
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Playlists> getUserPlaylist(@PathParam("username") String name) {
+    public List<Playlists> getUserPlaylist(String name) {
         return playlistService.getUserPlaylist(name);
     }
+
+
 
     @Path("/{id}")
     @DELETE
@@ -61,5 +63,14 @@ public class PlaylistController {
     public Response updatePlaylist(@PathParam("id") Long id, String name) {
         playlistService.updatePlaylistName(id, name);
         return Response.status(Response.Status.OK).build();
+
+    }
+    @Path("/playlistSongs")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Playlists> getPlaylistSong(String playlist) {
+        return playlistService.getPlaylistSong(playlist);
     }
 }
+

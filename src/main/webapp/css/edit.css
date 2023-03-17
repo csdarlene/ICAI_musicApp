@@ -58,3 +58,18 @@ label {
     width: 800px;
     height: 50%;
 }
+
+select {
+    display: block; /* display select as block to take up full width */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+option[value=null] {
+    display: none; /* hide the default option with null value */
+}

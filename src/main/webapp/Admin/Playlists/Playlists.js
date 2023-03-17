@@ -20,7 +20,7 @@ async function getPlaylists() {
         const data = await response.json();
         data.forEach(playlists => {
             const playlistsList =
-                `<li>${playlists.name}
+                `<li>${playlists.name}, ${playlists.modified}
             </li>`;
             document.querySelector('ol').insertAdjacentHTML('beforeend', playlistsList);
         })

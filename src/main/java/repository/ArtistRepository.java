@@ -1,6 +1,7 @@
 package repository;
 
 import entity.Artists;
+import entity.Songs;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
@@ -71,6 +72,20 @@ public class ArtistRepository {
         System.out.println(artists);
         entityManager.getTransaction().commit();
         return artists;
+    }
+    public List<Artists> getArtistAlbum(String artists) {
+        entityManager.getEntityManagerFactory();
+
+        entityManager.getTransaction().begin();
+        TypedQuery<Artists> query = entityManager.createQuery("select a.albumSet from Artists a where a.name =?1", Artists.class);
+
+        query.setParameter(1, artists);
+
+        List<Artists> artist = query.getResultList();
+        System.out.println(artist);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return artist;
     }
 
 }

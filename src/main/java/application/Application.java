@@ -1,6 +1,8 @@
 package application;
 
+import entity.Playlists;
 import entity.Songs;
+import service.ArtistService;
 import service.PlaylistService;
 import service.SongService;
 

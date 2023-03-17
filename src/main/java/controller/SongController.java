@@ -29,11 +29,11 @@ public class SongController {
         return songs;
     }
 
-    @Path("/SongArtist/{name}")
-    @GET
+    @Path("/songArtist")
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSongArtist(@PathParam("name") String name) {
-        return songService.getArtistSong(name).toString();
+    public List<Songs> getSongArtist( String song) {
+        return songService.getArtistSong(song);
     }
 
     @Path("/{id}")
