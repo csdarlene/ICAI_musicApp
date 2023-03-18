@@ -3,7 +3,6 @@ package designPatterns.patternBehavioral.ManyToManyMapping;
 
 import entity.Playlists;
 import entity.Songs;
-import service.ArtistService;
 import service.PlaylistService;
 import service.SongService;
 
@@ -34,8 +33,4 @@ public class PlaylistSongs {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(linkSongToPlaylist("Favs", "Phases"));
-
-    }
 }

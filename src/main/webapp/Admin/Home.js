@@ -9,7 +9,9 @@ async function getArtistSong() {
     });
     const data = await response.json();
     const table = document.getElementById('artistTable');
+    console.log(data)
     data.forEach(artist => {
+        console.log(artist)
         const row = table.insertRow();
         const nameCell = row.insertCell(0);
         nameCell.innerHTML = artist;
@@ -27,7 +29,9 @@ async function getUserPlaylist() {
     });
     const data = await response.json();
     const table = document.getElementById('playlistTable');
+    console.log(data)
     data.forEach(playlist => {
+        console.log(playlist)
         const row = table.insertRow();
         const nameCell = row.insertCell(0);
         nameCell.innerHTML = playlist;
@@ -46,7 +50,9 @@ async function GetPlaylistSong() {
     });
     const data = await response.json();
     const table = document.getElementById('songTable');
+    console.log(data)
     data.forEach(song => {
+        console.log(song)
         const row = table.insertRow();
         const nameCell = row.insertCell(0);
         nameCell.innerHTML = song;
