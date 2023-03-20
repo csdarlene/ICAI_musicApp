@@ -2,7 +2,6 @@ package service;
 
 import configuration.JPAConfiguration;
 import entity.Playlists;
-import entity.Songs;
 import repository.PlaylistRepository;
 
 import java.util.List;
@@ -22,16 +21,16 @@ public class PlaylistService {
         return playlistRepository.getUserPlaylist(username);
     }
 
-    public Playlists createPlaylists(Playlists playlist) {
-        return playlistRepository.createPlaylists(playlist);
+    public void createPlaylists(Playlists playlist) {
+        playlistRepository.createPlaylists(playlist);
     }
 
-    public Playlists deletePlaylist(Long id) {
-        return playlistRepository.deletePlaylist(id);
+    public void deletePlaylist(Long id) {
+        playlistRepository.deletePlaylist(id);
     }
 
-    public Playlists updatePlaylistName(Long id, String name) {
-        return playlistRepository.updatePlaylistName(id, name);
+    public void updatePlaylistName(Long id, String name) {
+        playlistRepository.updatePlaylistName(id, name);
     }
 
     public Playlists findPlaylist(Long id) {

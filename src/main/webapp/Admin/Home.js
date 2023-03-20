@@ -5,16 +5,14 @@ async function getArtistSong() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body:song
+        body: song
     });
     const data = await response.json();
     const table = document.getElementById('artistTable');
-    console.log(data)
     data.forEach(artist => {
-        console.log(artist)
         const row = table.insertRow();
         const nameCell = row.insertCell(0);
-        nameCell.innerHTML = artist;
+        nameCell.innerHTML = artist.name;
     });
 }
 
@@ -25,13 +23,11 @@ async function getUserPlaylist() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body:name
+        body: name
     });
     const data = await response.json();
     const table = document.getElementById('playlistTable');
-    console.log(data)
     data.forEach(playlist => {
-        console.log(playlist)
         const row = table.insertRow();
         const nameCell = row.insertCell(0);
         nameCell.innerHTML = playlist;
@@ -41,21 +37,19 @@ async function getUserPlaylist() {
 
 async function GetPlaylistSong() {
     const playlist = prompt('Type in a playlist');
-    const response = await fetch('http://localhost:8080/ICAIapp_war_exploded/api/songs/playlistSongs/', {
+    const response = await fetch('http://localhost:8080/ICAIapp_war_exploded/api/playlists/playlistSongs/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body:playlist
+        body: playlist
     });
     const data = await response.json();
     const table = document.getElementById('songTable');
-    console.log(data)
     data.forEach(song => {
-        console.log(song)
         const row = table.insertRow();
         const nameCell = row.insertCell(0);
-        nameCell.innerHTML = song;
+        nameCell.innerHTML = song.name;
     });
 }
 

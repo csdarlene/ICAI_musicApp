@@ -19,7 +19,7 @@ public class Songs {
     @Column(nullable = false)
     private Double time;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "artist_songs",
             joinColumns = {@JoinColumn(name = "song_id")},
             inverseJoinColumns = {@JoinColumn(name = "artist_id")},

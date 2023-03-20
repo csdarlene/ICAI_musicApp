@@ -18,24 +18,24 @@ public class UserService {
         return userRepository.getAllUsers();
     }
 
-    public Users createUsers(Users users) {
-        return userRepository.createUsers(users);
+    public void createUsers(Users users) {
+        userRepository.createUsers(users);
     }
 
     public Users findUser(Long id) {
         return userRepository.findUser(id);
     }
 
-    public Users deleteUser(Long id) {
-        return userRepository.deleteUser(id);
+    public void deleteUser(Long id) {
+        userRepository.deleteUser(id);
     }
 
-    public Users updateUserUsername(Long id, String username) {
-        return userRepository.updateUserUsername(id, username);
+    public void updateUserUsername(Long id, String username) {
+        userRepository.updateUserUsername(id, username);
     }
 
-    public Users updateUserPassword(Long id, String password) {
-        return userRepository.updateUserPassword(id, password);
+    public void updateUserPassword(Long id, String password) {
+        userRepository.updateUserPassword(id, password);
 
     }
 

@@ -18,16 +18,16 @@ public class SongService {
         return songRepository.getAllSongs();
     }
 
-    public Songs createSongs(Songs songs) {
-        return songRepository.createSongs(songs);
+    public void createSongs(Songs songs) {
+        songRepository.createSongs(songs);
     }
 
-    public Songs updateSongName(Long id, String name) {
-        return songRepository.updateSongName(id, name);
+    public void updateSongName(Long id, String name) {
+        songRepository.updateSongName(id, name);
     }
 
-    public Songs deleteSong(Long id) {
-        return songRepository.deleteSong(id);
+    public void deleteSong(Long id) {
+        songRepository.deleteSong(id);
     }
 
     public Songs findSong(Long id) {

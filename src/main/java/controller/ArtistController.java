@@ -1,7 +1,6 @@
 package controller;
 
 import entity.Artists;
-import entity.Playlists;
 import entity.RecordLabels;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -35,7 +34,7 @@ public class ArtistController {
 
 
     @Path("/artistAlbum")
-    @GET
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public List<Artists> getArtistAlbum(String album) {

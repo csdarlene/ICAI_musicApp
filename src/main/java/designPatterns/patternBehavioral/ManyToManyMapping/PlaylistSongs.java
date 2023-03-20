@@ -33,4 +33,8 @@ public class PlaylistSongs {
     }
 
 
+    public static void main(String[] args) {
+        System.out.println(linkSongToPlaylist("Favs", "Phases"));
+
+    }
 }

@@ -20,7 +20,7 @@ public class Artists {
     @ManyToMany(mappedBy = "artistSet")
     private Set<Songs> songSet = new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "artist_albums",
             joinColumns = {@JoinColumn(name = "artist_id")},
             inverseJoinColumns = {@JoinColumn(name = "album_id")},

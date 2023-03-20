@@ -25,7 +25,6 @@ public class AlbumRepository {
     public Albums findAlbum(Long id) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("unasat_persistence");
         EntityManager entityManager = factory.createEntityManager();
-
         entityManager.getTransaction().begin();
         Albums albums = entityManager.find(Albums.class, id);
         System.out.println(albums.toString());
@@ -34,60 +33,46 @@ public class AlbumRepository {
     }
 
 
-    public Albums deleteAlbum(Long id) {
-
+    public void deleteAlbum(Long id) {
         try {
             entityManager.getEntityManagerFactory();
-
             entityManager.getTransaction().begin();
             Albums albums = entityManager.find(Albums.class, id);
             System.out.println(albums.getName() + " has been removed \n");
             entityManager.remove(albums);
-
             entityManager.getTransaction().commit();
-            return albums;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
-            return null;
         }
     }
 
-    public Albums createAlbums(Albums album) {
+    public void createAlbums(Albums album) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(album);
             entityManager.getTransaction().commit();
-            return album;
         } catch (Exception e) {
             e.printStackTrace();
-            entityManager.getTransaction().rollback();
-            return null;
         }
     }
 
-    public Albums updateAlbumName(Long id, String name) {
+    public void updateAlbumName(Long id, String name) {
         entityManager.getEntityManagerFactory();
         entityManager.getTransaction().begin();
-
         Albums albums = entityManager.find(Albums.class, id);
         albums.setName(name);
         System.out.println(albums);
         entityManager.getTransaction().commit();
-        return albums;
     }
 
-    public Albums updateAlbumYear(Long id, Integer year) {
+    public void updateAlbumYear(Long id, Integer year) {
         entityManager.getEntityManagerFactory();
-
         entityManager.getTransaction().begin();
-
         Albums albums = entityManager.find(Albums.class, id);
         albums.setYear(year);
         System.out.println(albums);
         entityManager.getTransaction().commit();
-        return albums;
-
     }
 
 }

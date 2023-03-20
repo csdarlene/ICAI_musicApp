@@ -82,7 +82,7 @@ select p.name Playlist, s.name Songs
 from playlist_songs ps
          join playlists p on ps.playlist_id = p.id
          join songs s on ps.song_id = s.id
-where p.name = 'workout playlist';
+where p.name = 'Favs';
 
 
 

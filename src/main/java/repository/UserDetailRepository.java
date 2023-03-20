@@ -20,22 +20,19 @@ public class UserDetailRepository {
         return typedQuery.getResultList();
     }
 
-    public UserDetails createUserDetails(UserDetails userDetails) {
+    public void createUserDetails(UserDetails userDetails) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(userDetails);
             entityManager.getTransaction().commit();
-            return userDetails;
+
         } catch (Exception e) {
             e.printStackTrace();
-            entityManager.getTransaction().rollback();
-            return null;
         }
-
     }
 
 
-    public UserDetails deleteUserDetail(Long id) {
+    public void deleteUserDetail(Long id) {
         try {
             entityManager.getEntityManagerFactory();
 
@@ -45,15 +42,15 @@ public class UserDetailRepository {
             entityManager.remove(userDetails);
 
             entityManager.getTransaction().commit();
-            return userDetails;
+
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
-            return null;
+
         }
     }
 
-    public UserDetails updateUserDetailEmail(Long id, String mail) {
+    public void updateUserDetailEmail(Long id, String mail) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -62,10 +59,9 @@ public class UserDetailRepository {
         userDetails.setEmail(mail);
         System.out.println(userDetails);
         entityManager.getTransaction().commit();
-        return userDetails;
     }
 
-    public UserDetails updateUserDetailName(Long id, String name) {
+    public void updateUserDetailName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -74,6 +70,5 @@ public class UserDetailRepository {
         userDetails.setName(name);
         System.out.println(userDetails);
         entityManager.getTransaction().commit();
-        return userDetails;
     }
 }

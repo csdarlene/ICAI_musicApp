@@ -39,6 +39,13 @@ public class PlaylistController {
     }
 
 
+    @Path("/playlistSongs")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Playlists> getPlaylistSong(String playlist) {
+        return playlistService.getPlaylistSong(playlist);
+    }
 
     @Path("/{id}")
     @DELETE
@@ -65,12 +72,6 @@ public class PlaylistController {
         return Response.status(Response.Status.OK).build();
 
     }
-    @Path("/playlistSongs")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Playlists> getPlaylistSong(String playlist) {
-        return playlistService.getPlaylistSong(playlist);
-    }
+
 }
 

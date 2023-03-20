@@ -19,18 +19,17 @@ public class RecordLabelRepository {
         return typedQuery.getResultList();
     }
 
-    public RecordLabels createRecordLabel(RecordLabels recordLabels) {
+    public void createRecordLabel(RecordLabels recordLabels) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(recordLabels);
             entityManager.getTransaction().commit();
-            return recordLabels;
+
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
-            return null;
-        }
 
+        }
     }
 
     public RecordLabels findRecordLabel(Long id) {
@@ -43,7 +42,7 @@ public class RecordLabelRepository {
         return recordLabels;
     }
 
-    public RecordLabels updateRecordLabelName(Long id, String name) {
+    public void updateRecordLabelName(Long id, String name) {
         entityManager.getEntityManagerFactory();
 
         entityManager.getTransaction().begin();
@@ -52,10 +51,9 @@ public class RecordLabelRepository {
         recordLabels.setName(name);
         System.out.println(recordLabels);
         entityManager.getTransaction().commit();
-        return recordLabels;
     }
 
-    public RecordLabels deleteRecordLabel(Long id) {
+    public void deleteRecordLabel(Long id) {
         try {
 
             entityManager.getEntityManagerFactory();
@@ -66,11 +64,11 @@ public class RecordLabelRepository {
             entityManager.remove(recordLabels);
 
             entityManager.getTransaction().commit();
-            return recordLabels;
+
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
-            return null;
+
         }
     }
 }
