@@ -19,9 +19,4 @@
     -Configure Tomcat 
 - Step 2:
     - Run Tomcat
-- Step 3:
-
-- Step 4:
-
-- Extra:
    
